@@ -2,9 +2,9 @@ import type { Site, Page, Links, Socials } from "@types"
 
 // Global
 export const SITE: Site = {
-  TITLE: "harsh-writes-code",
-  DESCRIPTION: "Welcome to harsh-writes-code's Portfolio, a portfolio and blog of my thoughts on Stuff",
-  AUTHOR: "harsh",
+  TITLE: "Harsh",
+  DESCRIPTION: "Welcome to Harsh's Portfolio, a Backend Developer with 1+ years of experience in Node.js, Express.js, TypeScript, and Laravel.",
+  AUTHOR: "Harsh",
 }
 
 // Work Page
@@ -13,11 +13,7 @@ export const WORK: Page = {
   DESCRIPTION: "Places I have worked.",
 }
 
-// Blog Page
-export const BLOG: Page = {
-  TITLE: "Blog",
-  DESCRIPTION: "Writing on topics I am passionate about.",
-}
+
 
 // Projects Page 
 export const PROJECTS: Page = {
@@ -41,10 +37,7 @@ export const LINKS: Links = [
     TEXT: "Work", 
     HREF: "/work", 
   },
-  { 
-    TEXT: "Blog", 
-    HREF: "/blog", 
-  },
+
   { 
     TEXT: "Projects", 
     HREF: "/projects", 
@@ -56,8 +49,8 @@ export const SOCIALS: Socials = [
   { 
     NAME: "Email",
     ICON: "email", 
-    TEXT: "happydhimanbarara@gmail.com@gmail.com",
-    HREF: "mailto:happydhimanbarara@gmail.com@gmail.com",
+    TEXT: "harshdhimanbarara15@gmail.com",
+    HREF: "mailto:harshdhimanbarara15@gmail.com",
   },
   { 
     NAME: "Github",
@@ -68,14 +61,8 @@ export const SOCIALS: Socials = [
   { 
     NAME: "LinkedIn",
     ICON: "linkedin",
-    TEXT: "markhorn-dev",
-    HREF: "https://www.linkedin.com/in/keshav-dhiman-547b5b238",
-  },
-  { 
-    NAME: "Twitter",
-    ICON: "twitter-x",
-    TEXT: "markhorn_dev",
-    HREF: "https://twitter.com/markhorn_dev",
+    TEXT: "harsh-dhiman",
+    HREF: "https://www.linkedin.com/in/harsh-dhiman",
   },
 ]
 
