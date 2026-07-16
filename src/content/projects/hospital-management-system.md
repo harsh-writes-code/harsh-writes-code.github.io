@@ -1,11 +1,12 @@
 ---
 title: "Hospital Management System"
-summary: "Scalable backend APIs for hospital management modules including FAQs, Blogs, Careers, Galleries, Settings, Feedbacks, and Events."
+summary: "Robust backend architecture for a hospital management platform."
 date: "2026-07-01"
-tags: ["Node.js", "Express.js", "TypeScript", "MySQL", "Redis", "AWS S3", "CloudFront"]
+tags: ["Node.js", "Express.js", "TypeScript", "MySQL", "Sequelize ORM", "Redis", "AWS S3", "CloudFront"]
 ---
 
-- Developed scalable backend APIs for hospital management modules.
-- Built FAQs, Blogs, Careers, Galleries, Settings, Feedbacks, and Events modules.
-- Integrated AWS S3 and CloudFront for secure media management.
-- Maintained code quality using ESLint, Prettier, Husky, and TypeScript.
+- Built a robust backend architecture for a hospital management platform, handling modules for FAQs, Blogs, Careers, Galleries, and Settings.
+- Managed relational databases using MySQL and Sequelize ORM, and integrated Redis caching to improve API response times.
+- Ensured platform security through JWT-based authentication, bcrypt encryption, and strict data validation using Joi.
+- Handled scalable media storage and delivery by integrating AWS S3 and CloudFront.
+- Maintained high code quality standards utilizing ESLint, Prettier, Husky pre-commit hooks, and strict TypeScript rules.

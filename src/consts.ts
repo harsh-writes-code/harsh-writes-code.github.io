@@ -3,7 +3,7 @@ import type { Site, Page, Links, Socials } from "@types"
 // Global
 export const SITE: Site = {
   TITLE: "Harsh",
-  DESCRIPTION: "Welcome to Harsh's Portfolio, a Backend Developer with 1+ years of experience in Node.js, Express.js, TypeScript, and Laravel.",
+  DESCRIPTION: "Backend Software Engineer with 1+ year of experience building scalable web applications using PHP, Laravel, Node.js, TypeScript, MySQL, and Redis.",
   AUTHOR: "Harsh",
 }
 
@@ -49,8 +49,8 @@ export const SOCIALS: Socials = [
   { 
     NAME: "Email",
     ICON: "email", 
-    TEXT: "harshdhimanbarara15@gmail.com",
-    HREF: "mailto:harshdhimanbarara15@gmail.com",
+    TEXT: "happydhimanbarara@gmail.com",
+    HREF: "mailto:happydhimanbarara@gmail.com",
   },
   { 
     NAME: "Github",
@@ -61,8 +61,8 @@ export const SOCIALS: Socials = [
   { 
     NAME: "LinkedIn",
     ICON: "linkedin",
-    TEXT: "harsh-dhiman",
-    HREF: "https://www.linkedin.com/in/harsh-dhiman",
+    TEXT: "harsh-dhiman-barara",
+    HREF: "https://www.linkedin.com/in/harsh-dhiman-barara",
   },
 ]
 

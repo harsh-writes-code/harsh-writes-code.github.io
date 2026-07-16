@@ -1,17 +1,12 @@
 ---
-company: "Omega Broadcast Pvt. Ltd."
-role: "Software Engineer (Backend Developer) SDE-1"
-dateStart: "05/01/2025"
+company: "Omega Broadcast"
+role: "Software Development Engineer"
+dateStart: "07/01/2025"
 dateEnd: "Present"
 ---
 
-Technologies: Node.js, Express.js, TypeScript, MySQL, Sequelize ORM, Redis, AWS, Firebase, Laravel, CodeIgniter
-
-- Developed scalable REST APIs using Node.js, Express.js, TypeScript and Laravel.
-- Designed modular backend architecture following clean coding practices.
-- Built secure authentication and authorization using JWT and bcrypt.
-- Designed and optimized MySQL database schemas using Sequelize ORM.
-- Integrated Redis caching to improve API performance.
-- Integrated AWS S3 and CloudFront for secure file storage and media delivery.
-- Implemented Firebase notifications and real-time features.
-- Collaborated with frontend developers to build enterprise applications.
+- Developed REST APIs using Laravel and Node.js for internal application modules. 
+- Designed and optimized MySQL schemas to improve data consistency and query performance. 
+- Implemented Redis caching to reduce API response times. 
+- Resolved production issues and improved application stability. 
+- Collaborated with frontend developers to deliver new features.
