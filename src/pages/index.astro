@@ -11,7 +11,7 @@ import MeteorShower from "@components/MeteorShower.astro"
 
 const projects = (await getCollection("projects"))
   .filter(project => !project.data.draft)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .sort((a, b) => (b.data.date?.getTime() || 0) - (a.data.date?.getTime() || 0))
   .slice(0,3)
 
 const stack = [

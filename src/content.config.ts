@@ -16,7 +16,7 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string(),
-    date: z.coerce.date(),
+    date: z.coerce.date().optional(),
     tags: z.array(z.string()),
     draft: z.boolean().optional(),
     demoUrl: z.string().optional(),
