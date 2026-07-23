@@ -52,12 +52,7 @@ export const SOCIALS: Socials = [
     TEXT: "happydhimanbarara@gmail.com",
     HREF: "mailto:happydhimanbarara@gmail.com",
   },
-  { 
-    NAME: "Github",
-    ICON: "github",
-    TEXT: "harsh-writes-code",
-    HREF: "https://github.com/harsh-writes-code"
-  },
+
   { 
     NAME: "LinkedIn",
     ICON: "linkedin",
