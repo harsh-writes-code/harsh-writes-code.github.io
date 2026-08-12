@@ -5,6 +5,65 @@
 <script>
   import * as THREE from "three"
 
+  const NODE_COUNT = 46
+  const RADIUS = 1.8
+  const NEIGHBORS_PER_NODE = 2
+
+  function fibonacciSpherePoints(count: number, radius: number) {
+    const points: THREE.Vector3[] = []
+    const offset = 2 / count
+    const increment = Math.PI * (3 - Math.sqrt(5))
+    for (let i = 0; i < count; i++) {
+      const y = i * offset - 1 + offset / 2
+      const r = Math.sqrt(Math.max(0, 1 - y * y))
+      const phi = i * increment
+      const x = Math.cos(phi) * r
+      const z = Math.sin(phi) * r
+      const jitter = 0.85 + Math.random() * 0.3
+      points.push(new THREE.Vector3(x, y, z).multiplyScalar(radius * jitter))
+    }
+    return points
+  }
+
+  function buildEdgePositions(points: THREE.Vector3[], neighborsPerNode: number) {
+    const used = new Set<string>()
+    const segmentPoints: THREE.Vector3[] = []
+    for (let i = 0; i < points.length; i++) {
+      const distances: [number, number][] = []
+      for (let j = 0; j < points.length; j++) {
+        if (i === j) continue
+        distances.push([j, points[i].distanceToSquared(points[j])])
+      }
+      distances.sort((a, b) => a[1] - b[1])
+      for (let k = 0; k < neighborsPerNode && k < distances.length; k++) {
+        const j = distances[k][0]
+        const key = i < j ? `${i}-${j}` : `${j}-${i}`
+        if (used.has(key)) continue
+        used.add(key)
+        segmentPoints.push(points[i], points[j])
+      }
+    }
+    return segmentPoints
+  }
+
+  function makeDotTexture() {
+    const size = 64
+    const canvas = document.createElement("canvas")
+    canvas.width = size
+    canvas.height = size
+    const ctx = canvas.getContext("2d")
+    if (!ctx) return null
+    const gradient = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2)
+    gradient.addColorStop(0, "rgba(255,255,255,1)")
+    gradient.addColorStop(0.5, "rgba(255,255,255,0.55)")
+    gradient.addColorStop(1, "rgba(255,255,255,0)")
+    ctx.fillStyle = gradient
+    ctx.fillRect(0, 0, size, size)
+    const texture = new THREE.CanvasTexture(canvas)
+    texture.needsUpdate = true
+    return texture
+  }
+
   function initHero3D() {
     const container = document.getElementById("hero3d")
     const canvas = document.getElementById("hero3d-canvas")
@@ -14,28 +73,56 @@
 
     const scene = new THREE.Scene()
     const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100)
-    camera.position.set(0, 0, 6)
+    camera.position.set(0, 0, 6.2)
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true })
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2))
 
-    function getLineColor() {
-      return document.documentElement.classList.contains("dark") ? 0xffffff : 0x111111
+    function isDark() {
+      return document.documentElement.classList.contains("dark")
     }
 
-    // Outer faceted shape (edges only, no fill)
-    const outerGeo = new THREE.IcosahedronGeometry(1.8, 1)
-    const outerEdges = new THREE.EdgesGeometry(outerGeo)
-    const outerMat = new THREE.LineBasicMaterial({ color: getLineColor(), transparent: true, opacity: 0.9 })
-    const outerLines = new THREE.LineSegments(outerEdges, outerMat)
-    scene.add(outerLines)
+    function getColor() {
+      return isDark() ? 0xffffff : 0x111111
+    }
 
-    // Smaller inner shape, counter-rotating, fainter — gives it depth
-    const innerGeo = new THREE.IcosahedronGeometry(1.05, 0)
-    const innerEdges = new THREE.EdgesGeometry(innerGeo)
-    const innerMat = new THREE.LineBasicMaterial({ color: getLineColor(), transparent: true, opacity: 0.35 })
-    const innerLines = new THREE.LineSegments(innerEdges, innerMat)
-    scene.add(innerLines)
+    function getFogColor() {
+      return isDark() ? 0x000000 : 0xffffff
+    }
+
+    const fog = new THREE.Fog(getFogColor(), 3.4, 9)
+    scene.fog = fog
+
+    const group = new THREE.Group()
+    scene.add(group)
+
+    const points = fibonacciSpherePoints(NODE_COUNT, RADIUS)
+
+    const nodeGeometry = new THREE.BufferGeometry().setFromPoints(points)
+    const dotTexture = makeDotTexture()
+    const nodeMaterial = new THREE.PointsMaterial({
+      color: getColor(),
+      size: 0.16,
+      map: dotTexture || undefined,
+      transparent: true,
+      opacity: 0.95,
+      sizeAttenuation: true,
+      depthWrite: false,
+      fog: true,
+    })
+    const nodePoints = new THREE.Points(nodeGeometry, nodeMaterial)
+    group.add(nodePoints)
+
+    const edgeSegments = buildEdgePositions(points, NEIGHBORS_PER_NODE)
+    const edgeGeometry = new THREE.BufferGeometry().setFromPoints(edgeSegments)
+    const edgeMaterial = new THREE.LineBasicMaterial({
+      color: getColor(),
+      transparent: true,
+      opacity: 0.28,
+      fog: true,
+    })
+    const edgeLines = new THREE.LineSegments(edgeGeometry, edgeMaterial)
+    group.add(edgeLines)
 
     function render() {
       renderer.render(scene, camera)
@@ -54,7 +141,6 @@
     ro.observe(container)
     resize()
 
-    // Subtle pointer-follow offset on top of the idle spin
     let pointerX = 0
     let pointerY = 0
     function onPointerMove(e: PointerEvent) {
@@ -64,18 +150,17 @@
     }
     window.addEventListener("pointermove", onPointerMove)
 
-    // Keep line color in sync with the light/dark toggle
     const themeObserver = new MutationObserver(() => {
-      const color = getLineColor()
-      outerMat.color.setHex(color)
-      innerMat.color.setHex(color)
+      const color = getColor()
+      nodeMaterial.color.setHex(color)
+      edgeMaterial.color.setHex(color)
+      fog.color.setHex(getFogColor())
       if (reduceMotion) render()
     })
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] })
 
     if (reduceMotion) {
-      outerLines.rotation.set(0.4, 0.6, 0)
-      innerLines.rotation.set(-0.3, -0.5, 0)
+      group.rotation.set(0.35, 0.5, 0)
       render()
       return
     }
@@ -83,10 +168,8 @@
     const clock = new THREE.Clock()
     function animate() {
       const t = clock.getElapsedTime()
-      outerLines.rotation.x = t * 0.15 + pointerY * 0.3
-      outerLines.rotation.y = t * 0.2 + pointerX * 0.3
-      innerLines.rotation.x = -t * 0.1 - pointerY * 0.2
-      innerLines.rotation.y = -t * 0.12 - pointerX * 0.2
+      group.rotation.y = t * 0.18 + pointerX * 0.35
+      group.rotation.x = Math.sin(t * 0.25) * 0.12 + pointerY * 0.25
       render()
       requestAnimationFrame(animate)
     }
