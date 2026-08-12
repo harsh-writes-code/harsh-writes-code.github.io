@@ -4,6 +4,7 @@ import PageLayout from "@layouts/PageLayout.astro"
 import Container from "@components/Container.astro"
 import ArrowCard from "@components/ArrowCard"
 import StackCard from "@components/StackCard.astro"
+import Hero3D from "@components/Hero3D.astro"
 import { SITE, SOCIALS } from "@consts"
 
 const projects = (await getCollection("projects"))
@@ -55,22 +56,22 @@ const stack = [
   <!-- HERO -->
   <section id="hero" class="relative pt-40 sm:pt-48 pb-20">
     <Container size="xl">
-      <div class="animate max-w-3xl" style="perspective: 1200px;">
-        <div id="hero-tilt" class="[transform-style:preserve-3d] will-change-transform">
-          <div class="eyebrow mb-6 flex items-center gap-2" style="transform: translateZ(24px);">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-4 lg:gap-16 items-center">
+        <div class="animate max-w-2xl">
+          <div class="eyebrow mb-6 flex items-center gap-2">
             <span class="relative flex h-2 w-2">
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-black/40 dark:bg-white/40"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-black dark:bg-white"></span>
             </span>
             Backend Software Engineer
           </div>
-          <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-black dark:text-white" style="transform: translateZ(48px);">
+          <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-black dark:text-white">
             {SITE.AUTHOR}
           </h1>
-          <p class="mt-6 text-lg sm:text-xl leading-relaxed max-w-2xl" style="transform: translateZ(16px);">
+          <p class="mt-6 text-lg sm:text-xl leading-relaxed max-w-2xl">
             {SITE.DESCRIPTION}
           </p>
-          <div class="mt-10 flex flex-wrap items-center gap-4" style="transform: translateZ(32px);">
+          <div class="mt-10 flex flex-wrap items-center gap-4">
             <a href="/work" class="py-3 px-6 text-sm font-semibold bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 hover:dark:bg-white/80 transition-colors">
               View my work
             </a>
@@ -86,6 +87,9 @@ const stack = [
               Resume
             </a>
           </div>
+        </div>
+        <div class="animate h-[280px] sm:h-[340px] lg:h-[420px]">
+          <Hero3D />
         </div>
       </div>
     </Container>
@@ -161,49 +165,3 @@ const stack = [
 
   </Container>
 </PageLayout>
-
-<script>
-  function initHeroTilt() {
-    const hero = document.getElementById("hero")
-    const tilt = document.getElementById("hero-tilt")
-    if (!hero || !tilt) return
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
-    if (window.matchMedia("(pointer: coarse)").matches) return
-
-    const maxDeg = 7
-    let targetX = 0, targetY = 0, curX = 0, curY = 0
-    let raf: number | null = null
-
-    function animate() {
-      curX += (targetX - curX) * 0.08
-      curY += (targetY - curY) * 0.08
-      tilt!.style.transform = `rotateX(${curX}deg) rotateY(${curY}deg)`
-      if (Math.abs(targetX - curX) > 0.01 || Math.abs(targetY - curY) > 0.01) {
-        raf = requestAnimationFrame(animate)
-      } else {
-        raf = null
-      }
-    }
-
-    function onMove(e: MouseEvent) {
-      const rect = hero!.getBoundingClientRect()
-      const px = (e.clientX - rect.left) / rect.width
-      const py = (e.clientY - rect.top) / rect.height
-      targetY = (px - 0.5) * maxDeg * 2
-      targetX = -(py - 0.5) * maxDeg * 2
-      if (raf === null) raf = requestAnimationFrame(animate)
-    }
-
-    function onLeave() {
-      targetX = 0
-      targetY = 0
-      if (raf === null) raf = requestAnimationFrame(animate)
-    }
-
-    hero.addEventListener("mousemove", onMove)
-    hero.addEventListener("mouseleave", onLeave)
-  }
-
-  document.addEventListener("astro:after-swap", initHeroTilt)
-  initHeroTilt()
-</script>
