@@ -14,8 +14,14 @@ const data = [...projects] as CollectionEntry<"projects">[]
 
 <PageLayout title={SEARCH.TITLE} description={SEARCH.DESCRIPTION}>
   <TopLayout>
-    <div class="animate page-heading">
-      {SEARCH.TITLE}
+    <div class="animate">
+      <div class="eyebrow mb-3">Find something</div>
+      <div class="page-heading">
+        {SEARCH.TITLE}
+      </div>
+      <p class="mt-3 text-lg max-w-xl">
+        {SEARCH.DESCRIPTION}
+      </p>
     </div>
   </TopLayout>
   <BottomLayout>

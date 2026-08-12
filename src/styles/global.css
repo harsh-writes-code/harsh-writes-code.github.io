@@ -29,7 +29,7 @@ html {
   color-scheme: light;
   background-color: white;
   font-family: "Atkinson", sans-serif;
-  
+
 }
 
 html.dark {
@@ -41,7 +41,7 @@ html,
 body {
   @apply h-full w-full antialiased;
   @apply bg-white dark:bg-black;
-  @apply text-black/75 dark:text-white/75;
+  @apply text-black/70 dark:text-white/70;
 }
 
 body {
@@ -62,9 +62,9 @@ header:not(.scrolled) {
 }
 
 header.scrolled {
-  @apply bg-white/75 dark:bg-black/50;
-  @apply border-black/10 dark:border-white/25;
-  @apply backdrop-blur-sm saturate-200;
+  @apply bg-white/80 dark:bg-black/60;
+  @apply border-black/10 dark:border-white/10;
+  @apply backdrop-blur-md saturate-150;
 }
 
 article {
@@ -72,28 +72,22 @@ article {
 }
 
 .page-heading {
-  @apply font-semibold text-black dark:text-white;
+  @apply font-bold text-black dark:text-white tracking-tight text-4xl sm:text-5xl;
+}
+
+.eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-black/45 dark:text-white/45;
 }
 
 .blend {
   @apply transition-all duration-300 ease-in-out;
 }
 
-/** Light theme particles on home page */
-@keyframes animateParticle {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-2000px);
-  }
-}
-
 /** styles for public /animation.js */
 .animate {
   opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease, transform 1s ease;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .animate.show {
@@ -109,48 +103,20 @@ article img {
 }
 
 /**
- * TWINKLE STARS
+ * Ambient background: faint grid + soft glow, no JS required.
  */
-
- #twinkle-star.template {
-  @apply absolute -left-full; /* hide offscreen */
+.ambient-grid {
+  background-image:
+    linear-gradient(to right, rgb(0 0 0 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(0 0 0 / 0.05) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
 }
 
-#twinkle-star.twinkle {
-  @apply animate-twinkle; /* defined in tailwind.config */
-}
-
-
-/**
- * Meteors
- */
-
-#meteors .shower {
-  @apply absolute inset-0 top-0;;
-  @apply left-1/2 -translate-x-1/2;
-  @apply w-screen aspect-square;
-}
-
-#meteors .meteor {
-  @apply animate-meteor; /* defined in tailwind.config */
-  @apply absolute top-1/2 left-1/2 w-px h-[75vh];
-  @apply bg-gradient-to-b from-white to-transparent;
-}
-
-#meteors .shower.ur {
-  @apply rotate-45;
-}
-
-#meteors .shower.dr {
-  @apply rotate-135;
-}
-
-#meteors .shower.dl {
-  @apply rotate-225;
-}
-
-#meteors .shower.ul {
-  @apply rotate-315;
+html.dark .ambient-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
 }
 
 .copy-cnt{
