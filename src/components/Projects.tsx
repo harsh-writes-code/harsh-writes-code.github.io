@@ -41,7 +41,7 @@ export default function Projects({ data, tags }: Props) {
               {(tag) => (
                 <li>
                   <button onClick={() => toggleTag(tag)} class={cn("group flex gap-2 items-center text-left", "text-black/50 dark:text-white/50 hover:text-black hover:dark:text-white", "transition-colors duration-300 ease-in-out", filter().has(tag) && "text-black dark:text-white")}>
-                    <span class={cn("size-1.5 rounded-full shrink-0 bg-black/30 dark:bg-white/30 group-hover:bg-black group-hover:dark:bg-white", "transition-colors duration-300 ease-in-out", filter().has(tag) && "bg-black dark:bg-white")} />
+                    <span class={cn("size-1.5 rounded-full shrink-0 bg-black/30 dark:bg-white/30 group-hover:bg-black group-hover:dark:bg-white", "transition-all duration-300 ease-in-out", filter().has(tag) && "bg-accent shadow-[0_0_10px_2px_rgba(99,102,241,0.6)]")} />
                     {tag}
                   </button>
                 </li>
@@ -52,10 +52,10 @@ export default function Projects({ data, tags }: Props) {
       </div>
       <div class="col-span-4 sm:col-span-3">
         <div class="flex flex-col">
-          <div class="eyebrow mb-2">
+          <div class="eyebrow mb-4">
             Showing {projects().length} of {data.length} projects
           </div>
-          <ul>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {projects().map((project) => (
               <li>
                 <ArrowCard entry={project} />

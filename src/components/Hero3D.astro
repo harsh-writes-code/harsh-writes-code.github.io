@@ -1,4 +1,5 @@
 <div id="hero3d" class="relative w-full h-full pointer-events-none">
+  <div class="absolute inset-0 -z-10 glow-accent blur-3xl opacity-60 dark:opacity-40 scale-90"></div>
   <canvas id="hero3d-canvas" class="block w-full h-full"></canvas>
 </div>
 
@@ -124,6 +125,24 @@
     const edgeLines = new THREE.LineSegments(edgeGeometry, edgeMaterial)
     group.add(edgeLines)
 
+    // Sparse, slower background layer for parallax depth
+    const bgGroup = new THREE.Group()
+    scene.add(bgGroup)
+    const bgPoints3D = fibonacciSpherePoints(70, RADIUS * 2.1)
+    const bgGeometry = new THREE.BufferGeometry().setFromPoints(bgPoints3D)
+    const bgMaterial = new THREE.PointsMaterial({
+      color: getColor(),
+      size: 0.07,
+      map: dotTexture || undefined,
+      transparent: true,
+      opacity: 0.25,
+      sizeAttenuation: true,
+      depthWrite: false,
+      fog: true,
+    })
+    const bgPoints = new THREE.Points(bgGeometry, bgMaterial)
+    bgGroup.add(bgPoints)
+
     function render() {
       renderer.render(scene, camera)
     }
@@ -154,6 +173,7 @@
       const color = getColor()
       nodeMaterial.color.setHex(color)
       edgeMaterial.color.setHex(color)
+      bgMaterial.color.setHex(color)
       fog.color.setHex(getFogColor())
       if (reduceMotion) render()
     })
@@ -161,6 +181,7 @@
 
     if (reduceMotion) {
       group.rotation.set(0.35, 0.5, 0)
+      bgGroup.rotation.set(0.2, 0.3, 0)
       render()
       return
     }
@@ -170,6 +191,8 @@
       const t = clock.getElapsedTime()
       group.rotation.y = t * 0.18 + pointerX * 0.35
       group.rotation.x = Math.sin(t * 0.25) * 0.12 + pointerY * 0.25
+      bgGroup.rotation.y = t * 0.05 + pointerX * 0.12
+      bgGroup.rotation.x = Math.sin(t * 0.18) * 0.06 + pointerY * 0.1
       render()
       requestAnimationFrame(animate)
     }

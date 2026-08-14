@@ -41,15 +41,17 @@ function formatWorkDate(input: Date | string) {
     </div>
   </TopLayout>
   <BottomLayout>
-    <ul>
+    <ul class="relative">
+      <div class="absolute left-[7px] sm:left-[159px] top-2 bottom-2 w-px bg-gradient-to-b from-transparent via-black/15 dark:via-white/15 to-transparent"></div>
       {
-        work.map((entry) => (
-          <li class="animate border-t border-black/10 dark:border-white/10 py-10 first-of-type:border-none">
+        work.map((entry, i) => (
+          <li class={`${i % 2 === 0 ? "reveal-left" : "reveal-right"} relative pl-8 sm:pl-0 py-8 first-of-type:pt-0`}>
+            <div class="absolute left-0 sm:left-[152px] top-9 sm:top-10 size-[15px] rounded-full bg-white dark:bg-black border-2 border-black dark:border-white shadow-[0_0_0_4px_rgba(99,102,241,0.15)]" />
             <div class="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 sm:gap-8">
-              <div class="eyebrow">
+              <div class="eyebrow sm:pt-8">
                 {formatWorkDate(entry.data.dateStart)} — {formatWorkDate(entry.data.dateEnd)}
               </div>
-              <div>
+              <div data-tilt class="card-3d glass rounded-2xl p-6 sm:p-8">
                 <div class="text-black dark:text-white font-bold text-xl">
                   {entry.data.company}
                 </div>

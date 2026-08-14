@@ -8,7 +8,11 @@ type Props = {
 
 export default function ArrowCard({entry, pill}: Props) {
     return (
-      <a href={`/${entry.collection}/${entry.id}`} class="group py-6 gap-4 flex items-start sm:items-center border-b border-black/10 dark:border-white/10 hover:border-black/30 dark:hover:border-white/30 transition-colors duration-300 ease-in-out">
+      <a
+        href={`/${entry.collection}/${entry.id}`}
+        data-tilt
+        class="card-3d glass group h-full flex flex-col justify-between gap-4 p-5 sm:p-6 rounded-2xl overflow-hidden"
+      >
       <div class="w-full blend">
         <div class="flex flex-wrap items-center gap-2">
           {pill &&
@@ -22,7 +26,7 @@ export default function ArrowCard({entry, pill}: Props) {
             </div>
           }
         </div>
-        <div class="font-bold text-lg sm:text-xl mt-2 text-black dark:text-white group-hover:translate-x-1 blend">
+        <div class="font-bold text-lg sm:text-xl mt-2 text-black dark:text-white group-hover:text-accent blend">
           {entry.data.title}
         </div>
 
@@ -37,10 +41,13 @@ export default function ArrowCard({entry, pill}: Props) {
           ))}
         </ul>
       </div>
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-1 sm:mt-0 stroke-current opacity-40 group-hover:opacity-100 group-hover:stroke-black group-hover:dark:stroke-white blend">
-        <line x1="5" y1="12" x2="19" y2="12" class="scale-x-0 group-hover:scale-x-100 translate-x-4 group-hover:translate-x-1 transition-all duration-300 ease-in-out" />
-        <polyline points="12 5 19 12 12 19" class="translate-x-0 group-hover:translate-x-1 transition-all duration-300 ease-in-out" />
-      </svg>
+      <div class="flex items-center gap-1.5 text-sm font-semibold text-black/40 dark:text-white/40 group-hover:text-black group-hover:dark:text-white blend">
+        View
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 stroke-current group-hover:translate-x-1 blend">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+      </div>
     </a>
    )
 }

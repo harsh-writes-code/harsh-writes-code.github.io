@@ -33,18 +33,18 @@ export default function Search({data}: Props) {
 
   return (
     <div class="flex flex-col">
-      <div class="relative group">
-        <input name="search" type="text" value={query()} onInput={onInput} autocomplete="off" spellcheck={false} placeholder="What are you looking for?" class="w-full px-1 py-3 pl-9 bg-transparent outline-none text-xl sm:text-2xl font-semibold text-black dark:text-white placeholder:text-black/25 placeholder:dark:text-white/25 border-b border-black/15 dark:border-white/15 focus:border-black focus:dark:border-white transition-colors duration-300 ease-in-out"/>
-        <svg class="absolute size-5 left-0 top-1/2 -translate-y-1/2 stroke-current opacity-40">
+      <div class="relative group glass ring-accent-glow rounded-2xl px-4 transition-shadow duration-300 ease-in-out">
+        <input name="search" type="text" value={query()} onInput={onInput} autocomplete="off" spellcheck={false} placeholder="What are you looking for?" class="w-full px-1 py-4 pl-9 bg-transparent outline-none text-xl sm:text-2xl font-semibold text-black dark:text-white placeholder:text-black/25 placeholder:dark:text-white/25"/>
+        <svg class="absolute size-5 left-4 top-1/2 -translate-y-1/2 stroke-current opacity-40">
           <use href={`/ui.svg#search`}/>
         </svg>
       </div>
       {(query().length >= 2 && results().length >= 1) && (
         <div class="mt-12">
-          <div class="eyebrow mb-2">
+          <div class="eyebrow mb-4">
             Found {results().length} results for '{query()}'
           </div>
-          <ul>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {results().map(result => (
               <li>
                 <ArrowCard entry={result} pill={true} />

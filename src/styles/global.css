@@ -4,6 +4,8 @@
 
 :root{
   --copy-btn-margin:10px;
+  --accent: 99 102 241;
+  --tilt-max: 10deg;
 }
 
 @layer base {
@@ -62,9 +64,14 @@ header:not(.scrolled) {
 }
 
 header.scrolled {
-  @apply bg-white/80 dark:bg-black/60;
+  @apply bg-white/75 dark:bg-black/55;
   @apply border-black/10 dark:border-white/10;
-  @apply backdrop-blur-md saturate-150;
+  @apply backdrop-blur-xl saturate-150;
+  box-shadow: 0 8px 30px -12px rgb(0 0 0 / 0.15);
+}
+
+html.dark header.scrolled {
+  box-shadow: 0 8px 30px -12px rgb(0 0 0 / 0.5);
 }
 
 article {
@@ -131,4 +138,139 @@ html.dark .ambient-grid {
 
 .copy-svg {
   @apply w-full aspect-square text-white opacity-70 hover:opacity-90;
+}
+
+/**
+ * Design system: glass surfaces, 3D tilt cards, accent glow, scroll reveals.
+ */
+.glass {
+  @apply relative bg-white/70 dark:bg-white/[0.045];
+  @apply border border-black/10 dark:border-white/10;
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow:
+    0 1px 1px rgb(0 0 0 / 0.03),
+    0 8px 24px -8px rgb(0 0 0 / 0.12),
+    0 24px 48px -24px rgb(0 0 0 / 0.16);
+}
+
+html.dark .glass {
+  box-shadow:
+    0 1px 1px rgb(0 0 0 / 0.4),
+    0 8px 24px -8px rgb(0 0 0 / 0.5),
+    0 24px 64px -24px rgb(0 0 0 / 0.6),
+    0 0 0 1px rgb(255 255 255 / 0.02) inset;
+}
+
+.card-3d {
+  position: relative;
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 50%;
+  --my: 50%;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateZ(0);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  will-change: transform;
+}
+
+.card-3d::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(320px circle at var(--mx) var(--my), rgb(var(--accent) / 0.14), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card-3d:hover::before,
+.card-3d:focus-within::before {
+  opacity: 1;
+}
+
+.card-3d:hover,
+.card-3d:focus-within {
+  border-color: rgb(0 0 0 / 0.2);
+}
+
+html.dark .card-3d:hover,
+html.dark .card-3d:focus-within {
+  border-color: rgb(255 255 255 / 0.2);
+}
+
+.glow-accent {
+  background: radial-gradient(closest-side, rgb(var(--accent) / 0.35), transparent 70%);
+}
+
+.glow-line {
+  background: linear-gradient(to right, transparent, rgb(var(--accent) / 0.55), transparent);
+}
+
+.ring-accent-glow:focus-within {
+  box-shadow: 0 0 0 3px rgb(var(--accent) / 0.18);
+}
+
+/* Scroll reveals — driven by IntersectionObserver in public/js/animate.js */
+.animate,
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up { transform: translateY(28px); }
+.reveal-left { transform: translateX(-32px) rotateY(6deg); }
+.reveal-right { transform: translateX(32px) rotateY(-6deg); }
+.reveal-scale { transform: scale(0.94) translateY(16px); }
+
+.animate.show,
+.reveal-up.show,
+.reveal-left.show,
+.reveal-right.show,
+.reveal-scale.show {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .card-3d {
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .card-3d:hover,
+  .card-3d:focus-within {
+    transform: none;
+  }
+}
+
+/* View transitions */
+::view-transition-old(root) {
+  animation: view-fade-out 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+::view-transition-new(root) {
+  animation: view-fade-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes view-fade-out {
+  to { opacity: 0; transform: scale(0.985) translateY(6px); }
+}
+
+@keyframes view-fade-in {
+  from { opacity: 0; transform: scale(1.01) translateY(-6px); }
 }

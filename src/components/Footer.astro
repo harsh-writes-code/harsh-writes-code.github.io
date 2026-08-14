@@ -3,9 +3,10 @@ import { SITE, SOCIALS } from "@consts"
 import Container from "@components/Container.astro"
 ---
 
-<footer class="relative bg-white dark:bg-black">
+<footer class="relative bg-white dark:bg-black" transition:persist>
   <div class="animate">
-    <section class="py-16 border-t border-black/10 dark:border-white/10">
+    <section class="relative py-16 border-t border-black/10 dark:border-white/10">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 max-w-md h-px glow-line"></div>
       <Container size="xl">
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-8">
           <div>
@@ -57,9 +58,9 @@ import Container from "@components/Container.astro"
                   href={SOCIAL.HREF}
                   target="_blank"
                   aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
-                  class="group text-black/50 dark:text-white/50 hover:text-black hover:dark:text-white blend"
+                  class="group text-black/50 dark:text-white/50 hover:text-black hover:dark:text-white blend hover:-translate-y-0.5 inline-block"
                 >
-                  <svg class="size-4 fill-current blend">
+                  <svg class="size-4 fill-current blend group-hover:scale-110">
                     <use href={`/social.svg#${SOCIAL.ICON}`} />
                   </svg>
                 </a>

@@ -25,7 +25,8 @@ const { Content } = await render(doc);
 
 <PageLayout title={title} description={`${title} for ${SITE.TITLE}`}>
   <TopLayout>
-    <div class="animate">
+    <div class="animate relative">
+      <div class="absolute -left-10 -top-10 w-72 h-40 glow-accent blur-3xl opacity-30 dark:opacity-20 -z-10"></div>
       <div class="page-heading">
         {title}
       </div>
@@ -35,7 +36,7 @@ const { Content } = await render(doc);
     </div>
   </TopLayout>
   <BottomLayout>
-    <article class="animate">
+    <article class="animate glass rounded-2xl p-6 sm:p-10">
       <Content/>
     </article>
   </BottomLayout>
