@@ -41,7 +41,7 @@ export default function Projects({ data, tags }: Props) {
               {(tag) => (
                 <li>
                   <button onClick={() => toggleTag(tag)} class={cn("group flex gap-2 items-center text-left", "text-black/50 dark:text-white/50 hover:text-black hover:dark:text-white", "transition-colors duration-300 ease-in-out", filter().has(tag) && "text-black dark:text-white")}>
-                    <span class={cn("size-1.5 rounded-full shrink-0 bg-black/30 dark:bg-white/30 group-hover:bg-black group-hover:dark:bg-white", "transition-all duration-300 ease-in-out", filter().has(tag) && "bg-accent shadow-[0_0_10px_2px_rgba(99,102,241,0.6)]")} />
+                    <span class={cn("size-1.5 rounded-full shrink-0 bg-black/30 dark:bg-white/30 group-hover:bg-black group-hover:dark:bg-white", "transition-all duration-300 ease-in-out", filter().has(tag) && "bg-accent shadow-[0_0_10px_2px_rgb(var(--accent)/0.6)]")} />
                     {tag}
                   </button>
                 </li>

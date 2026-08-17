@@ -46,7 +46,7 @@ function formatWorkDate(input: Date | string) {
       {
         work.map((entry, i) => (
           <li class={`${i % 2 === 0 ? "reveal-left" : "reveal-right"} relative pl-8 sm:pl-0 py-8 first-of-type:pt-0`}>
-            <div class="absolute left-0 sm:left-[152px] top-9 sm:top-10 size-[15px] rounded-full bg-white dark:bg-black border-2 border-black dark:border-white shadow-[0_0_0_4px_rgba(99,102,241,0.15)]" />
+            <div class="absolute left-0 sm:left-[152px] top-9 sm:top-10 size-[15px] rounded-full bg-white dark:bg-black border-2 border-black dark:border-white shadow-[0_0_0_4px_rgb(var(--accent)/0.2)]" />
             <div class="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 sm:gap-8">
               <div class="eyebrow sm:pt-8">
                 {formatWorkDate(entry.data.dateStart)} — {formatWorkDate(entry.data.dateEnd)}

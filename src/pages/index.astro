@@ -2,51 +2,114 @@
 import { getCollection } from "astro:content"
 import PageLayout from "@layouts/PageLayout.astro"
 import Container from "@components/Container.astro"
-import ArrowCard from "@components/ArrowCard"
 import StackCard from "@components/StackCard.astro"
 import Hero3D from "@components/Hero3D.astro"
 import { SITE, SOCIALS } from "@consts"
 
-const projects = (await getCollection("projects"))
-  .filter(project => !project.data.draft)
+const allProjects = (await getCollection("projects")).filter(project => !project.data.draft)
+
+const projects = [...allProjects]
   .sort((a, b) => (b.data.date?.getTime() || 0) - (a.data.date?.getTime() || 0))
-  .slice(0,3)
+  .slice(0, 3)
 
 const stack = [
+  { text: "Node.js", icon: "javascript", href: "https://nodejs.org" },
+  { text: "TypeScript", icon: "typescript", href: "https://www.typescriptlang.org" },
+  { text: "PHP", icon: "php", href: "https://www.php.net/" },
+  { text: "Laravel", icon: "laravel", href: "https://laravel.com/" },
+  { text: "CodeIgniter", icon: "codeigniter", href: "https://codeigniter.com/" },
+  { text: "AWS", icon: "aws", href: "https://aws.amazon.com/" },
+  { text: "MySQL", icon: "database", href: "https://www.mysql.com/" },
+]
+
+const traits = ["Reliable", "Scalable", "Secure", "Efficient", "Detail-oriented"]
+
+const capabilities = [
   {
-    text: "Node.js",
-    icon: "javascript",
-    href: "https://nodejs.org"
+    heading: "Scalable REST APIs",
+    text: "Modular backend architecture with Node.js, Express, TypeScript, and Laravel — built to grow without turning into spaghetti.",
+    icon: "M13 2 3 14h7v8l10-12h-7V2z",
   },
   {
-    text: "TypeScript",
-    icon: "typescript",
-    href: "https://www.typescriptlang.org"
+    heading: "Secure Auth & Access Control",
+    text: "JWT and bcrypt-based authentication, Helmet hardening, and role-based access control for sensitive data.",
+    icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
   },
   {
-    text: "PHP",
-    icon: "php",
-    href: "https://www.php.net/"
+    heading: "Database Architecture",
+    text: "MySQL schema design, migrations, and seeders managed cleanly through the Sequelize ORM.",
+    icon: "db",
   },
   {
-    text: "Laravel",
-    icon: "laravel",
-    href: "https://laravel.com/"
+    heading: "Caching & Performance",
+    text: "Redis-backed caching and query tuning to keep API response times fast under real traffic.",
+    icon: "M22 12h-4l-3 9L9 3l-3 9H2",
   },
   {
-    text: "CodeIgniter",
-    icon: "codeigniter",
-    href: "https://codeigniter.com/"
+    heading: "Cloud & Storage",
+    text: "AWS S3, CloudFront, and Firebase wired up for secure file storage, media delivery, and real-time features.",
+    icon: "M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z",
+  },
+]
+
+const journey = [
+  {
+    year: "2025",
+    tag: "Apr — Jun",
+    heading: "First step in, PHP Web Developer Intern",
+    blurb: "Joined Omega Broadcast Pvt. Ltd. as an intern, learning front-end basics and backend development with PHP and MySQL.",
+    more: "Three months of hands-on learning — writing my first real PHP and MySQL code, understanding how a production codebase is structured, and figuring out how much I still had to learn. It set the direction for everything that followed.",
   },
   {
-    text: "AWS",
-    icon: "aws",
-    href: "https://aws.amazon.com/"
+    year: "2025",
+    tag: "Jul — Present",
+    heading: "Software Development Engineer",
+    blurb: "Converted to a full-time backend role, building scalable REST APIs and modular backend architectures.",
+    more: "Developed scalable REST APIs with Node.js, Express.js, TypeScript and Laravel. Designed modular backend architecture following clean coding practices, built secure authentication with JWT and bcrypt, and optimized MySQL schemas with Sequelize ORM and Redis caching.",
   },
   {
-    text: "MySQL",
-    icon: "database",
-    href: "https://www.mysql.com/"
+    year: "2026",
+    tag: "January",
+    heading: "Revenue Land Records Management System",
+    blurb: "Shipped a full-stack portal to digitize agricultural land records with automated AKMS unit calculations.",
+    more: "Engineered a secure Node.js/TypeScript backend with AWS S3 for legal document storage, real-time messaging via Socket.io and Redis, RBAC through JWT, and interactive React-Leaflet dashboards for revenue officers and administrators.",
+  },
+  {
+    year: "2026",
+    tag: "May",
+    heading: "Finance Management System",
+    blurb: "Built the backend for a finance platform — from schema design to secure file handling.",
+    more: "Built a reusable library for standardized HTTP request/response handling and centralized error handling. Architected the MySQL schema via Sequelize, integrated AWS S3/CloudFront for documents, and secured the app with JWT, bcrypt, Helmet, and Joi validation.",
+  },
+  {
+    year: "2026",
+    tag: "Jul — Now",
+    heading: "Hospital Management System",
+    blurb: "Delivered a robust backend for a hospital platform, and kept shipping — currently open to new opportunities.",
+    more: "Built modules for FAQs, blogs, careers, galleries, and settings, backed by MySQL and Redis caching. Maintained high code quality with ESLint, Prettier, and Husky pre-commit hooks. Now looking for the next backend problem worth solving.",
+  },
+]
+
+const faqs = [
+  {
+    q: "Are you open to full-time roles?",
+    a: "Yes. I'm currently a Software Development Engineer at Omega Broadcast and open to new backend engineering opportunities, especially roles focused on APIs, databases, and system design.",
+  },
+  {
+    q: "What's your core stack?",
+    a: "Node.js, Express.js, and TypeScript for new backends; PHP with Laravel or CodeIgniter for existing codebases. MySQL with Sequelize ORM, Redis for caching, and AWS (S3, CloudFront) for storage and delivery.",
+  },
+  {
+    q: "Do you work with legacy PHP codebases?",
+    a: "Yes. I started with PHP and MySQL and I'm comfortable auditing, maintaining, and modernizing existing Laravel or CodeIgniter applications, not just building greenfield services.",
+  },
+  {
+    q: "Are you open to remote work?",
+    a: "Yes, I'm comfortable working remotely or async with distributed teams, and just as comfortable in a hybrid or on-site setup.",
+  },
+  {
+    q: "What's the best way to reach you?",
+    a: "Email or LinkedIn — both are linked at the bottom of this page. I try to reply within a day.",
   },
 ]
 ---
@@ -54,38 +117,52 @@ const stack = [
 <PageLayout title="Home" description={SITE.DESCRIPTION}>
 
   <!-- HERO -->
-  <section id="hero" class="relative pt-40 sm:pt-48 pb-20">
+  <section id="hero" class="relative pt-40 sm:pt-48 pb-16">
     <Container size="xl">
       <div class="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-4 lg:gap-16 items-center">
         <div class="reveal-up max-w-2xl">
           <div class="eyebrow mb-6 flex items-center gap-2">
             <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-black/40 dark:bg-white/40"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-black dark:bg-white"></span>
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent/70"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
             </span>
-            Backend Software Engineer
+            Reliable backend engineering. That's {SITE.AUTHOR}.
           </div>
           <h1 class="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight text-black dark:text-white">
-            {SITE.AUTHOR}
+            <span class="block overflow-hidden"><span class="split-line block">Backend,</span></span>
+            <span class="block overflow-hidden"><span class="split-line block">Built to</span></span>
+            <span class="block overflow-hidden"><span class="split-line block text-accent">Last.</span></span>
           </h1>
           <p class="mt-6 text-lg sm:text-xl leading-relaxed max-w-2xl">
             {SITE.DESCRIPTION}
           </p>
           <div class="mt-10 flex flex-wrap items-center gap-4">
-            <a href="/work" class="py-3 px-6 text-sm font-semibold bg-black dark:bg-white text-white dark:text-black hover:bg-black/80 hover:dark:bg-white/80 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-8px_rgba(99,102,241,0.5)] transition-all duration-300 ease-in-out">
+            <a href="/work" class="btn-primary">
               View my work
             </a>
-            <a href="/projects" class="group flex gap-1.5 items-center text-sm font-semibold text-black dark:text-white">
+            <a href="/projects" class="btn-secondary">
               Explore projects
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-current group-hover:translate-x-1 blend">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
             </a>
             <a href="/Harsh_Resume.pdf" target="_blank" class="group flex gap-1.5 items-center text-sm font-semibold text-black/60 dark:text-white/60 hover:text-black hover:dark:text-white blend">
               <svg class="size-4 fill-current" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
               Resume
             </a>
+          </div>
+
+          <div class="mt-10 flex flex-wrap items-center gap-3">
+            <div class="stat-card">
+              <span class="stat-number">1+</span>
+              <span class="eyebrow mt-1">Years experience</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">{allProjects.length}+</span>
+              <span class="eyebrow mt-1">Projects shipped</span>
+            </div>
+            <div class="flex flex-wrap gap-2 max-w-[220px]">
+              {traits.map(trait => (
+                <span class="chip">{trait}</span>
+              ))}
+            </div>
           </div>
         </div>
         <div class="reveal-scale h-[280px] sm:h-[340px] lg:h-[420px]">
@@ -97,20 +174,81 @@ const stack = [
 
   <Container size="xl">
 
-    <!-- ABOUT -->
-    <section class="reveal-left grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-16 border-t border-black/10 dark:border-white/10">
+    <!-- ABOUT / JOURNEY -->
+    <section id="about" class="reveal-left grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-16 border-t border-black/10 dark:border-white/10">
       <div class="eyebrow md:pt-1">01 — About</div>
-      <div class="max-w-2xl space-y-5 text-lg leading-relaxed">
-        <p>I'm a <span class="text-black dark:text-white font-semibold">backend developer</span> with 1+ years of experience designing and building scalable web applications.</p>
-        <p>I'm passionate about writing clean, maintainable code and developing enterprise-level backend solutions. My core expertise lies in Node.js, Express.js, TypeScript, PHP (Laravel), MySQL, Sequelize ORM, Redis, and AWS.</p>
-        <p>I've built secure REST APIs, designed robust database schemas, implemented authentication systems, integrated cloud storage, and optimized performance for high-traffic applications.</p>
-        <p>Currently I work as a Software Engineer (Backend Developer) at <span class="text-black dark:text-white font-semibold">Omega Broadcast Pvt. Ltd.</span>, building scalable REST APIs and modular backend architectures.</p>
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white max-w-xl">
+          About Me &amp; My Journey
+        </h2>
+        <div class="max-w-2xl space-y-5 text-lg leading-relaxed mt-5">
+          <p>I'm a <span class="text-black dark:text-white font-semibold">backend developer</span> with 1+ years of experience designing and building scalable web applications.</p>
+          <p>My core expertise lies in Node.js, Express.js, TypeScript, PHP (Laravel), MySQL, Sequelize ORM, Redis, and AWS — building secure REST APIs, robust database schemas, authentication systems, and performance-tuned backends.</p>
+        </div>
+
+        <ul class="relative mt-12">
+          <div class="timeline-rail"></div>
+          {journey.map((item, i) => (
+            <li class="relative pl-10 sm:pl-16 pb-10 last-of-type:pb-0">
+              <div class="timeline-dot"></div>
+              <details class="group">
+                <summary class="cursor-pointer list-none flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                  <span class="text-2xl font-bold text-accent">{item.year}</span>
+                  <span class="eyebrow">{item.tag}</span>
+                </summary>
+                <h3 class="mt-2 text-xl font-bold text-black dark:text-white">{item.heading}</h3>
+                <p class="mt-2 max-w-xl text-base leading-relaxed">{item.blurb}</p>
+                <p class="mt-3 max-w-xl text-sm leading-relaxed text-black/60 dark:text-white/60 hidden group-open:block">{item.more}</p>
+                <span class="mt-3 inline-flex text-xs font-semibold uppercase tracking-wide text-black/40 dark:text-white/40 group-open:hidden">
+                  Read more
+                </span>
+              </details>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities" class="reveal-right grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-16 border-t border-black/10 dark:border-white/10">
+      <div class="eyebrow md:pt-1">02 — What I bring</div>
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white max-w-xl">
+          Capabilities Overview
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mt-8">
+          {capabilities.map(cap => (
+            <div data-tilt class="card-3d glass rounded-2xl p-6 flex flex-col gap-4">
+              <div class="flex items-center justify-between">
+                <div class="size-10 rounded-full bg-accent/15 flex items-center justify-center text-accent">
+                  {cap.icon === "db" ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                      <ellipse cx="12" cy="5" rx="9" ry="3" />
+                      <path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
+                      <path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                      <path d={cap.icon} />
+                    </svg>
+                  )}
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-current text-black/30 dark:text-white/30">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </div>
+              <div class="font-bold text-lg text-black dark:text-white">{cap.heading}</div>
+              <p class="text-sm sm:text-base leading-relaxed">{cap.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
     <!-- STACK -->
-    <section class="reveal-right grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-16 border-t border-black/10 dark:border-white/10">
-      <div class="eyebrow md:pt-1">02 — Stack</div>
+    <section class="reveal-left grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-16 border-t border-black/10 dark:border-white/10">
+      <div class="eyebrow md:pt-1">03 — Stack</div>
       <div class="flex flex-wrap items-center gap-2.5">
         {stack.map(item => (
           <StackCard
@@ -121,43 +259,114 @@ const stack = [
         ))}
       </div>
     </section>
+  </Container>
 
-    <!-- SELECTED WORK -->
-    <section class="reveal-left grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-16 border-t border-black/10 dark:border-white/10">
-      <div class="eyebrow md:pt-1">03 — Selected work</div>
-      <div>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-          {projects.map((project) => (
-            <li>
-              <ArrowCard entry={project} />
-            </li>
-          ))}
-        </ul>
-        <a href="/projects" class="group inline-flex gap-1.5 items-center mt-6 text-sm font-semibold text-black dark:text-white">
-          All projects
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-current group-hover:translate-x-1 blend">
-            <line x1="5" y1="12" x2="19" y2="12" />
-            <polyline points="12 5 19 12 12 19" />
-          </svg>
-        </a>
+  <!-- SELECTED WORK — dark, full-bleed -->
+  <section id="work" class="relative bg-black py-20 mt-4">
+    <Container size="xl">
+      <div class="reveal-left grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12">
+        <div class="text-xs font-semibold uppercase tracking-[0.2em] text-white/45 md:pt-1">04 — Selected work</div>
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white max-w-xl">
+            Built to Run, <br /> Made to Scale
+          </h2>
+          <p class="mt-4 max-w-xl text-white/60">
+            Backends I've shipped for real products — from finance and healthcare to land records and AI-driven publishing.
+          </p>
+
+          <ul class="mt-10 divide-y divide-white/10 border-t border-white/10">
+            {projects.map((project, i) => (
+              <li>
+                <a href={`/projects/${project.id}`} class="group grid grid-cols-1 sm:grid-cols-[64px_1fr_auto] items-start sm:items-center gap-3 sm:gap-6 py-7 hover:bg-white/[0.03] blend px-2 -mx-2 rounded-xl">
+                  <span class="text-2xl font-bold text-accent tabular-nums">{String(i + 1).padStart(2, "0")}</span>
+                  <div>
+                    <div class="font-bold text-xl sm:text-2xl text-white group-hover:text-accent blend">
+                      {project.data.title}
+                    </div>
+                    <p class="mt-1.5 text-sm sm:text-base text-white/55 max-w-xl line-clamp-2">
+                      {project.data.summary}
+                    </p>
+                    <ul class="flex flex-wrap mt-3 gap-1.5">
+                      {project.data.tags.slice(0, 4).map((tag: string) => (
+                        <li class="text-xs uppercase tracking-wide py-0.5 px-2 rounded-full border border-white/15 text-white/50">
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden sm:block stroke-current text-white/40 group-hover:text-accent group-hover:translate-x-1 group-hover:-translate-y-1 blend">
+                    <line x1="7" y1="17" x2="17" y2="7" />
+                    <polyline points="7 7 17 7 17 17" />
+                  </svg>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <a href="/projects" class="group inline-flex gap-1.5 items-center mt-8 text-sm font-semibold text-white">
+            All projects
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="stroke-current group-hover:translate-x-1 blend">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <Container size="xl">
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal-right grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-16 border-t border-black/10 dark:border-white/10">
+      <div class="eyebrow md:pt-1">05 — Contact</div>
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 items-center">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white max-w-xl">
+            Open to new opportunities and interesting backend problems.
+          </h2>
+          <div class="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+            {SOCIALS.map(social => (
+              <a href={social.HREF} target="_blank" class="group flex items-center gap-2 text-lg font-semibold text-black/70 dark:text-white/70 hover:text-black hover:dark:text-white blend">
+                <svg class="size-5 fill-current opacity-60 group-hover:opacity-100 blend">
+                  <use href={`/social.svg#${social.ICON}`}></use>
+                </svg>
+                {social.TEXT}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div data-tilt class="card-3d glass rounded-2xl p-6 flex flex-col gap-4">
+          <p class="text-sm font-semibold text-black dark:text-white">Have something in mind?</p>
+          <div class="flex items-center gap-1.5">
+            <span class="size-2 rounded-full bg-accent animate-bounce [animation-delay:-0.3s]"></span>
+            <span class="size-2 rounded-full bg-accent animate-bounce [animation-delay:-0.15s]"></span>
+            <span class="size-2 rounded-full bg-accent animate-bounce"></span>
+          </div>
+          <a href={SOCIALS[0].HREF} class="btn-primary w-fit">
+            Let's talk
+          </a>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section class="reveal-right grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-16 border-t border-black/10 dark:border-white/10">
-      <div class="eyebrow md:pt-1">04 — Contact</div>
-      <div>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white max-w-xl">
-          Open to new opportunities and interesting backend problems.
+    <!-- FAQ -->
+    <section id="faq" class="reveal-left grid grid-cols-1 md:grid-cols-[140px_1fr] gap-4 md:gap-12 py-16 border-t border-black/10 dark:border-white/10">
+      <div class="eyebrow md:pt-1">06 — FAQ</div>
+      <div class="max-w-2xl">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-black dark:text-white">
+          Got any questions?
         </h2>
-        <div class="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
-          {SOCIALS.map(social => (
-            <a href={social.HREF} target="_blank" class="group flex items-center gap-2 text-lg font-semibold text-black/70 dark:text-white/70 hover:text-black hover:dark:text-white blend">
-              <svg class="size-5 fill-current opacity-60 group-hover:opacity-100 blend">
-                <use href={`/social.svg#${social.ICON}`}></use>
-              </svg>
-              {social.TEXT}
-            </a>
+        <div class="mt-8">
+          {faqs.map(item => (
+            <details class="faq-item">
+              <summary>
+                {item.q}
+                <span class="faq-icon"></span>
+              </summary>
+              <p>{item.a}</p>
+            </details>
           ))}
         </div>
       </div>

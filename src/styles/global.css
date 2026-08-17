@@ -4,39 +4,33 @@
 
 :root{
   --copy-btn-margin:10px;
-  --accent: 99 102 241;
+  --accent: 255 214 0;
   --tilt-max: 10deg;
-}
-
-@layer base {
-  @font-face {
-    font-family: "Atkinson";
-    src: url("/fonts/atkinson-regular.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Atkinson";
-    src: url("/fonts/atkinson-bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
 }
 
 html {
   overflow-y: scroll;
   color-scheme: light;
-  background-color: white;
-  font-family: "Atkinson", sans-serif;
-
+  background-color: #EAE3CE;
+  font-family: "General Sans", sans-serif;
 }
 
 html.dark {
   color-scheme: dark;
-  background-color: black;
+  background-color: #161310;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+html.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+html.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 html,
@@ -144,14 +138,18 @@ html.dark .ambient-grid {
  * Design system: glass surfaces, 3D tilt cards, accent glow, scroll reveals.
  */
 .glass {
-  @apply relative bg-white/70 dark:bg-white/[0.045];
-  @apply border border-black/10 dark:border-white/10;
+  @apply relative border border-black/10 dark:border-white/10;
+  background: rgb(255 255 255 / 0.55);
   backdrop-filter: blur(20px) saturate(140%);
   -webkit-backdrop-filter: blur(20px) saturate(140%);
   box-shadow:
     0 1px 1px rgb(0 0 0 / 0.03),
     0 8px 24px -8px rgb(0 0 0 / 0.12),
     0 24px 48px -24px rgb(0 0 0 / 0.16);
+}
+
+html.dark .glass {
+  background: rgb(255 255 255 / 0.045);
 }
 
 html.dark .glass {
@@ -273,4 +271,101 @@ html.dark .card-3d:focus-within {
 
 @keyframes view-fade-in {
   from { opacity: 0; transform: scale(1.01) translateY(-6px); }
+}
+
+/**
+ * Buttons, chips, timeline and FAQ primitives.
+ */
+.btn-primary {
+  @apply inline-flex items-center gap-2 py-3 px-6 rounded-xl text-sm font-semibold text-black bg-accent;
+  @apply hover:-translate-y-0.5 hover:shadow-[0_10px_28px_-10px_rgb(var(--accent)/0.7)] blend;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center gap-2 py-3 px-6 rounded-xl text-sm font-semibold text-black dark:text-white;
+  @apply border border-black/15 dark:border-white/20 hover:border-black/30 hover:dark:border-white/40 hover:-translate-y-0.5 blend;
+}
+
+.chip {
+  @apply inline-flex items-center gap-2 rounded-full border border-black/10 dark:border-white/15 px-3.5 py-1.5 text-xs sm:text-sm font-semibold text-black/70 dark:text-white/70;
+  background: rgb(255 255 255 / 0.4);
+}
+
+html.dark .chip {
+  background: rgb(255 255 255 / 0.04);
+}
+
+.stat-card {
+  @apply glass rounded-2xl px-5 py-4 flex flex-col;
+}
+
+.stat-card .stat-number {
+  @apply text-3xl sm:text-4xl font-bold tracking-tight text-accent;
+}
+
+/* Timeline (About / Journey) */
+.timeline-rail {
+  @apply absolute left-[15px] sm:left-[27px] top-2 bottom-2 w-px;
+  background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 0.15), transparent);
+}
+
+html.dark .timeline-rail {
+  background: linear-gradient(to bottom, transparent, rgb(255 255 255 / 0.15), transparent);
+}
+
+.timeline-dot {
+  @apply absolute left-0 sm:left-3 top-1.5 size-[15px] rounded-full bg-white dark:bg-black border-2 border-black dark:border-white;
+  box-shadow: 0 0 0 4px rgb(var(--accent) / 0.2);
+}
+
+/* FAQ accordion built on native <details> */
+.faq-item {
+  @apply border-b border-black/10 dark:border-white/10 py-5;
+}
+
+.faq-item summary {
+  @apply flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-base sm:text-lg text-black dark:text-white;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item .faq-icon {
+  @apply relative shrink-0 size-5 text-black/50 dark:text-white/50 blend;
+}
+
+.faq-item .faq-icon::before,
+.faq-item .faq-icon::after {
+  content: "";
+  @apply absolute bg-current rounded-full blend;
+}
+
+.faq-item .faq-icon::before {
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  height: 1.5px;
+  transform: translateY(-50%);
+}
+
+.faq-item .faq-icon::after {
+  top: 2px;
+  bottom: 2px;
+  left: 50%;
+  width: 1.5px;
+  transform: translateX(-50%);
+}
+
+.faq-item[open] .faq-icon::after {
+  opacity: 0;
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.faq-item[open] summary {
+  @apply text-accent;
+}
+
+.faq-item p {
+  @apply mt-3 max-w-2xl text-sm sm:text-base leading-relaxed;
 }

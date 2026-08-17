@@ -32,7 +32,7 @@ import Container from "@components/Container.astro"
       </nav>
     </div>
 
-    <div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex gap-1">
+    <div class="buttons absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-1">
       <a href="/search" aria-label={`Search projects on ${SITE.TITLE}`} class={cn("hidden md:flex", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/10", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/15", "transition-colors duration-300 ease-in-out", pathname === "/search" || "/" + subpath?.[0] === "/search" ? "pointer-events-none bg-black dark:bg-white text-white dark:text-black" : "")}>
         <svg class="size-full">
           <use href="/ui.svg#search"></use>
@@ -49,6 +49,10 @@ import Container from "@components/Container.astro"
           <use href="/ui.svg#moon"></use>
         </svg>
       </button>
+
+      <a href="/#contact" class="hidden md:inline-flex ml-2 py-2 px-4 rounded-full text-xs font-bold uppercase tracking-wide text-black bg-accent hover:-translate-y-0.5 hover:shadow-[0_10px_24px_-10px_rgb(var(--accent)/0.7)] blend">
+        Let's talk
+      </a>
 
       <button id="header-drawer-button" aria-label={`Toggle drawer open and closed`} class={cn("flex md:hidden", "size-9 rounded-full p-2 items-center justify-center", "bg-transparent hover:bg-black/5 dark:hover:bg-white/10", "stroke-current hover:stroke-black hover:dark:stroke-white", "border border-black/10 dark:border-white/15", "transition-colors duration-300 ease-in-out")}>
         <svg id="drawer-open" class="size-full">

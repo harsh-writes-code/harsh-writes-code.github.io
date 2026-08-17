@@ -8,9 +8,11 @@ export default {
     extend: {
       colors: {
         accent: "rgb(var(--accent) / <alpha-value>)",
+        white: "#EAE3CE",
+        black: "#161310",
       },
       fontFamily: {
-        "sans": ["Atkinson", ...defaultTheme.fontFamily.sans],
+        "sans": ["General Sans", ...defaultTheme.fontFamily.sans],
       },
       typography: {
         DEFAULT: {
