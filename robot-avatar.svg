@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <radialGradient id="bg-grad" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </radialGradient>
+
+    <!-- Metallic Helmet Gradient -->
+    <linearGradient id="helmet-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#52525b"/>
+      <stop offset="35%" stop-color="#27272a"/>
+      <stop offset="70%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+
+    <!-- Face Visor Gradient -->
+    <linearGradient id="visor-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#09090b"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+
+    <!-- Neon Yellow Glow -->
+    <filter id="yellow-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur1"/>
+      <feGaussianBlur stdDeviation="14" result="blur2"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Cyan Glow -->
+    <filter id="cyan-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur1"/>
+      <feMerge>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Metallic Highlight -->
+    <linearGradient id="highlight-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Base Circle -->
+  <rect width="400" height="400" rx="200" fill="url(#bg-grad)"/>
+  <rect width="396" height="396" x="2" y="2" rx="198" fill="none" stroke="#3f3f46" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- Ambient Glow Behind Head -->
+  <circle cx="200" cy="200" r="120" fill="#ffff23" opacity="0.08" filter="url(#yellow-glow)"/>
+
+  <!-- Antenna Base & Rods -->
+  <rect x="194" y="55" width="12" height="40" rx="6" fill="#71717a"/>
+  <circle cx="200" cy="50" r="16" fill="#ffff23" filter="url(#yellow-glow)"/>
+  <circle cx="200" cy="50" r="10" fill="#ffffff"/>
+
+  <!-- Side Ears / Audio Sensors -->
+  <!-- Left Ear -->
+  <g transform="translate(55, 170)">
+    <rect width="30" height="60" rx="12" fill="#3f3f46" stroke="#71717a" stroke-width="2"/>
+    <rect x="6" y="15" width="18" height="30" rx="6" fill="#18181b"/>
+    <circle cx="15" cy="30" r="4" fill="#00f0ff" filter="url(#cyan-glow)"/>
+  </g>
+
+  <!-- Right Ear -->
+  <g transform="translate(315, 170)">
+    <rect width="30" height="60" rx="12" fill="#3f3f46" stroke="#71717a" stroke-width="2"/>
+    <rect x="6" y="15" width="18" height="30" rx="6" fill="#18181b"/>
+    <circle cx="15" cy="30" r="4" fill="#00f0ff" filter="url(#cyan-glow)"/>
+  </g>
+
+  <!-- Main Outer Helmet -->
+  <rect x="75" y="85" width="250" height="230" rx="75" fill="url(#helmet-grad)" stroke="#52525b" stroke-width="3"/>
+
+  <!-- Helmet Top Highlight -->
+  <path d="M110 95 C140 88, 260 88, 290 95 C250 108, 150 108, 110 95 Z" fill="url(#highlight-grad)"/>
+
+  <!-- Inner Visor Screen -->
+  <rect x="95" y="115" width="210" height="170" rx="50" fill="url(#visor-grad)" stroke="#27272a" stroke-width="3"/>
+
+  <!-- Visor Top Glass Reflection Line -->
+  <path d="M115 125 C145 120, 255 120, 285 125 C265 140, 135 140, 115 125 Z" fill="#ffffff" opacity="0.12"/>
+
+  <!-- Glowing Robot Eyes (Neon Yellow / Cyan) -->
+  <!-- Left Eye -->
+  <g filter="url(#yellow-glow)">
+    <rect x="130" y="160" width="44" height="44" rx="14" fill="#ffff23"/>
+    <rect x="136" y="166" width="32" height="32" rx="10" fill="#ffffff"/>
+    <circle cx="155" cy="178" r="4" fill="#000000" opacity="0.2"/>
+  </g>
+
+  <!-- Right Eye -->
+  <g filter="url(#yellow-glow)">
+    <rect x="226" y="160" width="44" height="44" rx="14" fill="#ffff23"/>
+    <rect x="232" y="166" width="32" height="32" rx="10" fill="#ffffff"/>
+    <circle cx="251" cy="178" r="4" fill="#000000" opacity="0.2"/>
+  </g>
+
+  <!-- Cute Cheek Glow Dots -->
+  <circle cx="125" cy="225" r="8" fill="#00f0ff" opacity="0.7" filter="url(#cyan-glow)"/>
+  <circle cx="275" cy="225" r="8" fill="#00f0ff" opacity="0.7" filter="url(#cyan-glow)"/>
+
+  <!-- Friendly Tech Mouth / Signal Line -->
+  <path d="M170 232 Q200 248 230 232" stroke="#ffff23" stroke-width="4.5" stroke-linecap="round" fill="none" filter="url(#yellow-glow)"/>
+
+  <!-- Neck Collar & Shoulders -->
+  <g transform="translate(130, 310)">
+    <rect x="30" y="0" width="80" height="35" rx="10" fill="#27272a" stroke="#3f3f46" stroke-width="2"/>
+    <line x1="50" y1="10" x2="90" y2="10" stroke="#00f0ff" stroke-width="3" stroke-linecap="round" opacity="0.8" filter="url(#cyan-glow)"/>
+  </g>
+  <path d="M80 345 C110 320, 290 320, 320 345 L350 400 L50 400 Z" fill="#18181b" stroke="#3f3f46" stroke-width="2"/>
+  <path d="M140 345 L200 375 L260 345" stroke="#ffff23" stroke-width="2.5" fill="none" opacity="0.4"/>
+</svg>
