@@ -885,6 +885,65 @@
               height: 100% !important;
             }
 
+            /* 2. MOBILE ABOUT CARD POPUP (ROUNDED ALL LAYERS, NO CUTTING) */
+            .about-card-wrap.is-active-wrap,
+            .about-card-wrap:has(.popup-card-wrap.is-active-card) {
+              z-index: 1000 !important;
+              position: relative !important;
+              overflow: visible !important;
+            }
+
+            .popup-card-wrap,
+            .popup-card-item,
+            .popup-card {
+              border-radius: clamp(1.25rem, 6vw, 2.8rem) !important;
+            }
+
+            .popup-card-wrap {
+              width: 100% !important;
+              max-width: 100% !important;
+              overflow: visible !important;
+            }
+
+            .popup-card-wrap.is-active-card {
+              position: absolute !important;
+              top: 0 !important;
+              left: 0 !important;
+              right: 0 !important;
+              bottom: auto !important;
+              width: 100% !important;
+              height: auto !important;
+              min-height: 100% !important;
+              z-index: 1000 !important;
+              display: block !important;
+              opacity: 1 !important;
+              visibility: visible !important;
+              pointer-events: auto !important;
+              transform: none !important;
+              background: transparent !important;
+              backdrop-filter: none !important;
+              -webkit-backdrop-filter: none !important;
+              overflow: visible !important;
+              box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65) !important;
+            }
+
+            .popup-card-item {
+              width: 100% !important;
+              height: auto !important;
+              overflow: hidden !important;
+            }
+
+            .popup-card-wrap.is-active-card .popup-card {
+              position: relative !important;
+              width: 100% !important;
+              height: auto !important;
+              min-height: 100% !important;
+              max-height: none !important;
+              border-radius: clamp(1.25rem, 6vw, 2.8rem) !important;
+              overflow: hidden !important;
+              border: 1px solid rgba(255, 255, 255, 0.25) !important;
+            }
+
             .nav-skill-pill {
               gap: 1.5vw !important;
               padding: clamp(0.35rem, 1.8vw, 0.6rem) clamp(0.75rem, 3.5vw, 1.2rem) !important;
@@ -5819,7 +5878,7 @@
             });
           }
 
-          // 2. Mobile Popups Click Handling
+          // 2. Mobile Popups Click Handling (Elevated Fullscreen Modal)
           document
             .querySelectorAll(".about-card-button")
             .forEach(function (btn) {
@@ -5831,14 +5890,20 @@
                 var popup = wrap.querySelector(".popup-card-wrap");
                 if (!popup) return;
 
-                // Close any open popup
+                // Close any open popup & remove wrapper highlights
                 document
                   .querySelectorAll(".popup-card-wrap.is-active-card")
                   .forEach(function (p) {
                     p.classList.remove("is-active-card");
                   });
+                document
+                  .querySelectorAll(".about-card-wrap.is-active-wrap")
+                  .forEach(function (w) {
+                    w.classList.remove("is-active-wrap");
+                  });
 
                 popup.classList.add("is-active-card");
+                wrap.classList.add("is-active-wrap");
               });
             });
 
@@ -5851,6 +5916,11 @@
                 e.stopPropagation();
                 var popup = closeBtn.closest(".popup-card-wrap");
                 if (popup) popup.classList.remove("is-active-card");
+                document
+                  .querySelectorAll(".about-card-wrap.is-active-wrap")
+                  .forEach(function (w) {
+                    w.classList.remove("is-active-wrap");
+                  });
               });
             });
 
@@ -5863,6 +5933,11 @@
                 .querySelectorAll(".popup-card-wrap.is-active-card")
                 .forEach(function (p) {
                   p.classList.remove("is-active-card");
+                });
+              document
+                .querySelectorAll(".about-card-wrap.is-active-wrap")
+                .forEach(function (w) {
+                  w.classList.remove("is-active-wrap");
                 });
             }
           });
