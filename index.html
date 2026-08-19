@@ -793,12 +793,14 @@
               display: none !important;
             }
 
-            /* Tighten Hero and remove gap before About section */
+            /* Tighten Hero and ensure natural vertical scroll on mobile */
             .hero {
               min-height: 100vh !important;
               height: auto !important;
               padding-bottom: 0 !important;
               margin-bottom: 0 !important;
+              position: relative !important;
+              overflow: visible !important;
             }
 
             .hero-sticky {
@@ -807,9 +809,13 @@
               max-height: 100vh !important;
               padding-bottom: 0 !important;
               position: relative !important;
+              top: auto !important;
+              overflow: visible !important;
             }
 
             .about-section {
+              position: relative !important;
+              z-index: 10 !important;
               margin-top: 0 !important;
               padding-top: clamp(2rem, 7vw, 3.5rem) !important;
             }
@@ -828,6 +834,8 @@
               align-items: flex-end !important;
               z-index: 8 !important;
               pointer-events: none !important;
+              opacity: 1 !important;
+              visibility: visible !important;
               -webkit-mask-image: linear-gradient(
                 to bottom,
                 rgba(0, 0, 0, 1) 0%,
