@@ -52,9 +52,11 @@
       type="text/css"
     />
     <style>
-      /* ============================================
-   ABOUT TIMELINE BALANCED SPACING (6 CARDS)
-   ============================================ */
+      html.w-mod-js:not(.w-mod-ix3) :is(.popup-card-wrap.is-active-card) {
+        visibility: hidden !important;
+      }
+
+      /* Desktop timeline spacing for 6 cards */
       @media screen and (min-width: 768px) {
         .about-card-wrap.ac-2 {
           top: 0% !important;
@@ -70,24 +72,6 @@
         }
         .about-card-wrap.ac-7 {
           top: 75% !important;
-        }
-      }
-
-      @media screen and (max-width: 767px) {
-        .about-wrap {
-          display: flex !important;
-          flex-direction: column !important;
-          gap: clamp(1.5rem, 5vw, 2.5rem) !important;
-        }
-        .about-card-container {
-          display: flex !important;
-          flex-direction: column !important;
-          gap: clamp(1.5rem, 5vw, 2.5rem) !important;
-          margin-top: 0 !important;
-        }
-        .about-card-wrap {
-          margin: 0 !important;
-          position: static !important;
         }
       }
     </style>
@@ -159,28 +143,94 @@
     </script>
   </head>
   <body>
+    <!-- MOBILE VERTICAL INTRO PRELOADER (EXACT DESKTOP VECTOR SVG LETTERS IN DEAD CENTER) -->
+    <div id="mobile-intro-loader">
+      <div class="mobile-intro-letters-wrap">
+        <svg
+          class="m-letter-svg"
+          viewBox="0 0 310 336"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.000 330.469V4.840H89.645V130.897H219.855V4.840H309.725V330.469H219.855V202.568H89.645V330.469H0.000Z"
+            fill="#ffff23"
+          ></path>
+        </svg>
+        <svg
+          class="m-letter-svg"
+          viewBox="338 0 332 336"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M339.725 330.469L483.725 4.840H523.725L667.725 330.469H575.725L546.725 250.000H460.725L431.725 330.469H339.725ZM536.725 182.000L503.725 84.000L470.725 182.000H536.725Z"
+            fill="#ffff23"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+        <svg
+          class="m-letter-svg"
+          viewBox="696 0 312 336"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M697.725 330.469V4.840H902.725C962.725 4.840 1003.725 42.000 1003.725 96.000C1003.725 148.000 962.725 186.000 899.725 186.000L1005.725 330.469H899.725L815.725 193.000H787.370V330.469H697.725ZM787.370 73.500V118.500H895.725C917.725 118.500 932.725 110.000 932.725 96.000C932.725 82.000 917.725 73.500 895.725 73.500H787.370Z"
+            fill="#ffff23"
+            fill-rule="evenodd"
+          ></path>
+        </svg>
+        <svg
+          class="m-letter-svg"
+          viewBox="1034 0 304 338"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1035.725 245.432L1105.552 205.794C1127.061 245.739 1158.633 265.712 1200.268 265.712C1214.710 265.712 1225.925 263.331 1233.914 258.568C1242.057 253.652 1246.128 246.661 1246.128 237.597C1246.128 228.686 1242.441 221.619 1235.066 216.395C1227.692 211.018 1214.710 206.562 1196.120 203.029L1139.889 192.198C1111.621 186.820 1090.035 176.450 1075.132 161.086C1060.383 145.569 1053.009 125.904 1053.009 102.091C1053.009 82.733 1058.770 65.295 1070.293 49.778C1081.969 34.107 1097.947 21.893 1118.227 13.136C1138.507 4.379 1161.014 0.000 1185.749 0.000C1263.182 0.000 1312.729 31.342 1334.391 94.025L1257.420 117.070C1249.892 100.170 1240.828 88.263 1230.227 81.350C1219.780 74.436 1205.876 70.979 1188.515 70.979C1175.302 70.979 1164.394 73.745 1155.791 79.276C1147.187 84.807 1142.885 92.258 1142.885 101.630C1142.885 110.233 1146.496 116.532 1153.717 120.527C1160.937 124.521 1173.843 128.285 1192.433 131.819L1247.972 142.650C1307.121 154.019 1336.696 184.977 1336.696 235.523C1336.696 266.557 1324.098 291.292 1298.902 309.728C1273.706 328.011 1239.906 337.152 1197.503 337.152C1158.326 337.152 1126.139 329.855 1100.943 315.259C1075.747 300.510 1054.007 277.235 1035.725 245.432Z"
+            fill="#ffff23"
+          ></path>
+        </svg>
+        <svg
+          class="m-letter-svg"
+          viewBox="1365 0 312 336"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M1366.696 330.469V4.840H1456.341V130.897H1586.551V4.840H1676.421V330.469H1586.551V202.568H1456.341V330.469H1366.696Z"
+            fill="#ffff23"
+          ></path>
+        </svg>
+      </div>
+    </div>
     <div class="page-wrap">
       <div class="capa-overview-wrap"></div>
       <div class="w-embed">
         <style>
-          /* ============================================
-   TABLE OF CONTENTS
-   ============================================
-   1. Lenis Smooth Scroll
-   2. Base Resets & Performance
-   3. Logo & SVG Optimization
-   4. Layout & Entrance Animations
-   5. Typography & Text Styles
-   6. Number Counter Components
-   7. Interactive Elements
-   8. Swiper Components
-   9. Safari-Specific Fixes
-   10. Animation Utilities
-   ============================================ */
+
 
           /* ============================================
-   1. LENIS SMOOTH SCROLL
-   ============================================ */
+             TABLE OF CONTENTS
+             ============================================
+             1. Lenis Smooth Scroll
+             2. Base Resets & Performance
+             3. Logo & SVG Optimization
+             4. Layout & Entrance Animations
+             5. Typography & Text Styles
+             6. Number Counter Components
+             7. Interactive Elements
+             8. Swiper Components
+             9. Safari-Specific Fixes
+             10. Animation Utilities
+             ============================================ */
+
+          /* ============================================
+             1. LENIS SMOOTH SCROLL
+             ============================================ */
           html.lenis,
           html.lenis body {
             height: auto;
@@ -207,9 +257,10 @@
             -moz-osx-font-smoothing: grayscale;
           }
 
+
           /* ============================================
-   2. BASE RESETS & PERFORMANCE
-   ============================================ */
+             2. BASE RESETS & PERFORMANCE
+             ============================================ */
           .nesh-logo,
           .nesh-logo svg,
           .nav-logo-item,
@@ -230,8 +281,8 @@
           }
 
           /* ============================================
-   3. LOGO & SVG OPTIMIZATION
-   ============================================ */
+             3. LOGO & SVG OPTIMIZATION
+             ============================================ */
           .nesh-logo-svg {
             shape-rendering: geometricPrecision;
             -webkit-backface-visibility: hidden;
@@ -240,8 +291,8 @@
           }
 
           /* ============================================
-   4. LAYOUT & ENTRANCE ANIMATIONS
-   ============================================ */
+             4. LAYOUT & ENTRANCE ANIMATIONS
+             ============================================ */
           /* Hide entrance elements initially */
           .profile-img-item,
           .hero-navigation-link,
@@ -256,12 +307,12 @@
           }
 
           .hero-heading {
-            visibility: hidden;
+           visibility: hidden;
           }
 
-          /* ============================================
-   DESIGN MODE — reveal hidden entrance elements
-   ============================================ */
+            /* ============================================
+             DESIGN MODE — reveal hidden entrance elements
+             ============================================ */
           .wf-design-mode .profile-img-item,
           .wf-design-mode .hero-navigation-link,
           .wf-design-mode .hero-navigation-sep,
@@ -286,9 +337,14 @@
           }
 
           /* ============================================
-   5. TYPOGRAPHY & TEXT STYLES
-   ============================================ */
-          .hero-heading,
+             5. TYPOGRAPHY & TEXT STYLES
+             ============================================ */
+          .hero-heading {
+            kerning: none;
+            color: #000000 !important;
+            text-shadow: none !important;
+          }
+
           .nav-webflow-text {
             kerning: none;
           }
@@ -336,8 +392,8 @@
           }
 
           /* ============================================
-   6. NUMBER COUNTER COMPONENTS
-   ============================================ */
+             6. NUMBER COUNTER COMPONENTS
+             ============================================ */
           [data-number-count] {
             display: inline-block;
             font-variant-numeric: tabular-nums;
@@ -377,12 +433,13 @@
           }
 
           /* ============================================
-   7. INTERACTIVE ELEMENTS
-   ============================================ */
+             7. INTERACTIVE ELEMENTS
+             ============================================ */
           /* Work card hover effects */
           .work-card:hover {
             opacity: 1;
           }
+
 
           @media (min-width: 992px) {
             /* When any card is hovered, show overlay on ALL cards */
@@ -395,12 +452,12 @@
             }
             /* When any card is hovered, dim ALL arrow wraps */
             .work-track:hover .work-card .work-card-arrow-wrap {
-              background-color: #2f2f2f !important;
-              color: #8c8c8c !important;
+              background-color: #2F2F2F !important;
+              color: #8C8C8C !important;
             }
             /* Undo for the hovered card */
             .work-track:hover .work-card:hover .work-card-arrow-wrap {
-              background-color: #ffff23 !important;
+              background-color: #FFFF23 !important;
               color: black !important;
             }
           }
@@ -420,14 +477,14 @@
             }
           }
 
-          .nav-email-item:hover .email-text,
-          .nav-email-item:hover .clipboard-wrap {
-            opacity: 0.35;
-          }
+            .nav-email-item:hover .email-text,
+            .nav-email-item:hover .clipboard-wrap {
+              opacity: 0.35;
+            }
 
           /* ============================================
-   8. SWIPER COMPONENTS
-   ============================================ */
+             8. SWIPER COMPONENTS
+             ============================================ */
           .swiper {
             margin-left: 0 !important;
             margin-right: 0 !important;
@@ -450,11 +507,11 @@
           }
 
           .swiper-wrapper {
-            cursor: none !important;
+           cursor: none !Important;
           }
           /* ============================================
-   9. SAFARI-SPECIFIC FIXES
-   ============================================ */
+             9. SAFARI-SPECIFIC FIXES
+             ============================================ */
           /* Scroll blur fix */
           [data-tl-to*="blur"] {
             -webkit-transform: translate3d(0, 0, 0);
@@ -476,8 +533,8 @@
           }
 
           /* ============================================
-   10. ANIMATION UTILITIES
-   ============================================ */
+             10. ANIMATION UTILITIES
+             ============================================ */
           .anim-char {
             transform: translate3d(0, 0, 0);
             -webkit-font-smoothing: antialiased;
@@ -485,31 +542,31 @@
           }
 
           .capa-card-item:hover .capa-card-arrow {
-            rotate: 180deg;
+           rotate: 180deg;
           }
 
           .hero-navigation-link.w--current {
-            color: black !important;
+           color: black !important;
           }
 
           .hero-navigation-link.w--current ~ .nav-item-bg {
-            background-color: #ffff23 !important;
+            background-color: #FFFF23 !Important;
           }
 
           .hero-navigation-link.w--current ~ .nav-item-icon {
-            color: black !important;
+            color: black !Important;
           }
 
           .faq-list.w--open .faq-answer-wrap {
-            grid-template-rows: 1fr;
+           grid-template-rows: 1fr;
           }
 
           .faq-toggle.w--open .faq-icon-v-line {
-            transform: rotate(90deg);
+           transform: rotate(90deg);
           }
 
           .faq-toggle:hover .faq-icon {
-            background-color: #edecda;
+           background-color: #EDECDA;
           }
 
           [data-origin] {
@@ -545,15 +602,16 @@
           }
 
           .nav-link:hover ~ .nav-item-bg {
-            background-color: #c9c8ba !important;
+           background-color: #C9C8BA !important;
           }
 
           .nav-link.w--current:hover ~ .nav-item-bg {
-            background-color: #ffff23 !important;
+           background-color: #ffff23 !important;
           }
 
+
           .nav-link:hover ~ .nav-item-bg.nav-item-dark {
-            background: rgba(94, 94, 94, 0.5) !important;
+           background: rgba(94, 94, 94, 0.50)!important;
           }
 
           .nav-link.w--current:hover ~ .nav-item-bg.nav-item-dark {
@@ -561,39 +619,39 @@
           }
 
           .nav-link:hover ~ .nav-item-icon {
-            color: #ffff23 !important;
+           color: #ffff23 !important;
           }
 
           .nav-link.w--current:hover ~ .nav-item-icon {
-            color: black !important;
+           color: black !important;
           }
 
-          .nav-webflow-bg {
-            backdrop-filter: blur(15px) !important;
+          	.nav-webflow-bg {
+          	backdrop-filter: blur(15px) !important;
           }
 
           .social-link:hover {
-            background-color: #c9c8ba !important;
+           background-color: #C9C8BA !important;
           }
 
           .social-link.social-dark:hover {
-            background-color: #5e5e5e !important;
+           	background-color: #5E5E5E !important;
           }
 
           .social-link:hover .social-bg-path {
-            color: #ffff23 !important;
+           color: #ffff23 !important;
           }
 
           .social-link:hover .social-path-white {
-            fill: #000 !important;
+           fill: #000 !important;
           }
 
-          .popup-close:hover .popup-close-path-1 {
+          .popup-close:hover .popup-close-path-1{
             transform: rotate(90deg);
             background-color: white;
           }
 
-          .popup-close:hover .popup-close-path-2 {
+          .popup-close:hover .popup-close-path-2{
             transform: rotate(-90deg);
             background-color: white;
           }
@@ -602,175 +660,66 @@
             margin: 0%;
           }
 
-          .work-card:hover .work-card-arrow {
+            .work-card:hover .work-card-arrow {
             margin-left: 100%;
           }
 
           /* ============================================
-   MOBILE STYLES
-   ============================================ */
+             MOBILE STYLES
+             ============================================ */
 
           @media (width < 767px) {
             /* ============================================
-   4. LAYOUT & ENTRANCE ANIMATIONS
-   ============================================ */
-            /* Hide entrance elements initially */
-            .profile-img-wrap,
-            .hero-navigation-link,
-            .hero-navigation-sep,
-            .nav-stats-card,
-            .hero-cards-left,
-            .hero-card-3,
-            .hero-cards-wrap,
-            .hero-left-text,
-            .hero-right-text,
-            .hero-buttons-wrap {
-              opacity: 1;
-              visibility: visible;
-            }
+             4. LAYOUT & ENTRANCE ANIMATIONS
+             ============================================ */
+                /* Hide entrance elements initially */
+                .profile-img-wrap,
+                .hero-navigation-link,
+                .hero-navigation-sep,
+                .nav-stats-card,
+                .hero-cards-left,
+                .hero-card-3,
+                .hero-cards-wrap,
+                .hero-left-text,
+                .hero-right-text,
+                .hero-buttons-wrap {
+                  opacity: 1;
+                  visibility: visible;
+                }
 
-            .hero-heading {
-              visibility: visible !important;
-              font-size: clamp(1.85rem, 7.5vw, 3.2rem) !important;
-              line-height: 1.15 !important;
-              text-align: center !important;
-            }
-            .hero-content-layout {
-              bottom: clamp(1.5rem, 6vw, 3.5rem) !important;
-            }
-            .mobile-hero-image-wrap {
-              position: absolute !important;
-              inset: 0 !important;
-              width: 100% !important;
-              height: 100% !important;
-              display: flex !important;
-              justify-content: center !important;
-              align-items: center !important;
-              padding: 0 !important;
-              z-index: 1 !important;
-              pointer-events: none !important;
-            }
-            .mobile-hero-image {
-              width: clamp(230px, 72vw, 330px) !important;
-              max-width: 82vw !important;
-              height: auto !important;
-              aspect-ratio: 451 / 553 !important;
-              object-fit: cover !important;
-              object-position: center top !important;
-              border-radius: clamp(1rem, 4.5vw, 1.75rem) !important;
-              border: 1px solid rgba(255, 255, 255, 0.2) !important;
-              box-shadow:
-                0 20px 50px -10px rgba(0, 0, 0, 0.7),
-                0 0 30px rgba(255, 255, 35, 0.12) !important;
-              display: block !important;
-              margin: 0 auto !important;
-            }
+                .hero-heading {
+                   visibility: visible;
+                  }
 
-            .swiper-pagination {
-              width: auto !important;
-              display: flex;
-              margin-bottom: 0vw;
-              padding: clamp(0.53rem, 2.67vw, 1.28rem);
-              border: 1px solid rgba(255, 255, 255, 0.2) !important;
-              border-radius: clamp(0.43rem, 2.13vw, 1.02rem);
-              position: relative !important;
-            }
 
-            .swiper-bullet.is-active {
-              width: clamp(1.92rem, 9.6vw, 4.61rem);
-              background-color: #ffff23;
-            }
+                .swiper-pagination {
+                  width: auto !important;
+                  display: flex;
+                  margin-bottom: 0vw;
+                  padding: clamp(0.53rem, 2.67vw, 1.28rem);
+                  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                  clamp(0.43rem, 2.13vw, 1.02rem);
+                  position: relative !important;
+                }
 
-            .capa-card-item:hover .capa-card-arrow {
-              rotate: 0deg;
-            }
+                .swiper-bullet.is-active {
+                    width: clamp(1.92rem, 9.6vw, 4.61rem);
+                    background-color: #ffff23;
+          			}
 
-            .faq-toggle:hover .faq-icon {
-              background-color: transparent;
-            }
+                .capa-card-item:hover .capa-card-arrow {
+                     rotate: 0deg;
+                    }
+
+                .faq-toggle:hover .faq-icon {
+                   background-color: transparent;
+                  }
           }
 
-          /* ============================================
-   HERO CARD 3 FIX (Creative, Reliable, etc.)
-   ============================================ */
-          .hero-card-3 {
-            height: auto !important;
-            min-height: fit-content !important;
-            display: flex !important;
-            flex-direction: column !important;
-            justify-content: flex-start !important;
-            align-items: flex-start !important;
-            padding: 1.2vw 1.6vw !important;
-            grid-row-gap: 0.65vw !important;
-            grid-column-gap: 0.65vw !important;
-            background-color: rgba(194, 184, 172, 0.3) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            border-radius: 0.7vw !important;
-            backdrop-filter: blur(20px) !important;
-            -webkit-backdrop-filter: blur(20px) !important;
-            box-sizing: border-box !important;
-            overflow: visible !important;
-          }
 
-          .hero-card-3-item {
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center !important;
-            justify-content: flex-start !important;
-            grid-column-gap: 0.55vw !important;
-            grid-row-gap: 0.55vw !important;
-            white-space: nowrap !important;
-            margin: 0 !important;
-          }
 
-          .hero-card-3-item p {
-            margin: 0 !important;
-            line-height: 1.2 !important;
-          }
 
-          .hero-card-3-icon {
-            width: clamp(14px, 1.1vw, 20px) !important;
-            height: auto !important;
-            flex-shrink: 0 !important;
-          }
-
-          @media (max-width: 767px), (width < 767px) {
-            .hero-card-3 {
-              padding: clamp(0.6rem, 2.8vw, 1.2rem) !important;
-              grid-row-gap: clamp(0.35rem, 1.6vw, 0.75rem) !important;
-              font-size: clamp(0.7rem, 3vw, 1rem) !important;
-              border-radius: clamp(0.43rem, 2vw, 0.8rem) !important;
-              border: 1px solid rgba(255, 255, 255, 0.2) !important;
-              inset: 0% auto auto clamp(1.17rem, 5.87vw, 2.81rem) !important;
-              height: auto !important;
-              max-height: none !important;
-            }
-            .hero-card-3-item {
-              grid-column-gap: clamp(0.35rem, 1.6vw, 0.75rem) !important;
-              grid-row-gap: clamp(0.35rem, 1.6vw, 0.75rem) !important;
-            }
-            .hero-card-3-icon {
-              width: clamp(0.75rem, 3.2vw, 1.2rem) !important;
-            }
-          }
-
-          .what_you_get_section .span {
-            display: inline-block !important;
-            min-width: 4.2vw !important;
-            margin: 0 0.3vw !important;
-            vertical-align: middle !important;
-          }
-
-          @media (max-width: 767px), (width < 767px) {
-            .what_you_get_section .span {
-              min-width: clamp(2.6rem, 12vw, 4.5rem) !important;
-              margin: 0 0.6vw !important;
-            }
-          }
-
-          /* ============================================
-   NAV SKILL PILLS (Tech Stack Marquee)
-   ============================================ */
+          /* Marquee skill pills */
           .nav-skill-pill {
             display: inline-flex !important;
             align-items: center !important;
@@ -787,7 +736,6 @@
             letter-spacing: -0.01em !important;
             line-height: 1 !important;
           }
-
           .nav-skill-pill .skill-dot {
             width: 0.35vw !important;
             height: 0.35vw !important;
@@ -797,276 +745,263 @@
             background: #18181b !important;
             display: inline-block !important;
           }
-
-          @media (max-width: 767px), (width < 767px) {
+          @media (max-width: 767px) {
             .nav-skill-pill {
               gap: 1.5vw !important;
-              padding: clamp(0.35rem, 1.8vw, 0.6rem)
-                clamp(0.75rem, 3.5vw, 1.2rem) !important;
+              padding: clamp(0.35rem, 1.8vw, 0.6rem) clamp(0.75rem, 3.5vw, 1.2rem) !important;
               font-size: clamp(0.75rem, 3.2vw, 1rem) !important;
             }
             .nav-skill-pill .skill-dot {
               width: 6px !important;
               height: 6px !important;
             }
-          }
 
-          /* ============================================
-             HEYNESH.COM 1:1 MOBILE HERO & NAVIGATION FIX
-             ============================================ */
-          @media screen and (max-width: 767px), (width < 767px) {
-            /* 1. Hide floating email pill in top bar on mobile so it never covers Harsh's name */
+            /* ============================================
+               1. VERTICAL MOBILE INTRO PRELOADER (H-A-R-S-H)
+               ============================================ */
+            #mobile-intro-loader {
+              position: fixed !important;
+              inset: 0 !important;
+              width: 100vw !important;
+              height: 100vh !important;
+              background-color: #dfdece !important;
+              z-index: 9999999 !important;
+              display: flex !important;
+              flex-direction: column !important;
+              justify-content: center !important;
+              align-items: center !important;
+              pointer-events: none !important;
+            }
+
+            .mobile-intro-letters-wrap {
+              display: flex !important;
+              flex-direction: column !important;
+              align-items: center !important;
+              justify-content: center !important;
+              gap: clamp(0.35rem, 1.8vw, 0.65rem) !important;
+              height: auto !important;
+            }
+
+            .m-letter-svg {
+              width: clamp(3.2rem, 15vw, 4.8rem) !important;
+              height: auto !important;
+              display: block !important;
+              color: #ffff23 !important;
+            }
+
             .nav-email-wrap {
               display: none !important;
             }
 
-            /* 2. Exact HeyNesh Hero Layering */
+            /* Tighten Hero and remove gap before About section */
             .hero {
-              pointer-events: auto !important;
-              min-height: clamp(
-                45.5rem,
-                220.7vw + 1.38rem,
-                105.7rem
-              ) !important;
-              padding-bottom: clamp(2.67rem, 13.33vw, 6.39rem) !important;
-              overflow: hidden !important;
-              position: relative !important;
+              min-height: 100vh !important;
+              height: auto !important;
+              padding-bottom: 0 !important;
+              margin-bottom: 0 !important;
             }
 
             .hero-sticky {
-              align-items: stretch !important;
-              height: auto !important;
-              min-height: clamp(
-                45.5rem,
-                220.7vw + 1.38rem,
-                105.7rem
-              ) !important;
+              min-height: 100vh !important;
+              height: 100vh !important;
+              max-height: 100vh !important;
+              padding-bottom: 0 !important;
               position: relative !important;
             }
 
-            .nesh-logo-preload {
-              z-index: 0 !important;
-              flex-flow: column !important;
-              justify-content: flex-start !important;
-              align-items: center !important;
-              height: 100% !important;
-              padding-top: clamp(
-                4.17rem,
-                20.26vw + 0.126rem,
-                9.71rem
-              ) !important;
-              padding-left: clamp(1.07rem, 5.33vw, 2.56rem) !important;
-              padding-right: clamp(1.07rem, 5.33vw, 2.56rem) !important;
-              display: flex !important;
-              position: absolute !important;
-              inset: 0% 0% auto !important;
+            .about-section {
+              margin-top: 0 !important;
+              padding-top: clamp(2rem, 7vw, 3.5rem) !important;
             }
 
-            .nesh-logo-ghost {
-              opacity: 1 !important;
-              width: 100% !important;
-              aspect-ratio: 3.8 !important;
-              color: var(--yellow) !important;
-            }
-
+            /* ============================================
+               2. FOREGROUND PORTRAIT CUTOUT (Z-INDEX: 8)
+               ============================================ */
             .mobile-hero-image-wrap {
-              z-index: 1 !important;
-              pointer-events: none !important;
+              position: absolute !important;
+              top: clamp(2.5rem, 10vw, 4.5rem) !important;
+              bottom: 0 !important;
+              height: auto !important;
+              max-height: 82vh !important;
+              display: flex !important;
               justify-content: center !important;
               align-items: flex-end !important;
-              height: clamp(40.7rem, 197.4vw + 1.23rem, 94.6rem) !important;
-              display: flex !important;
-              position: absolute !important;
-              inset: clamp(4.77rem, 23.09vw + 0.15rem, 11.07rem) 0% 0% !important;
+              z-index: 8 !important;
+              pointer-events: none !important;
+              -webkit-mask-image: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 1) 0%,
+                rgba(0, 0, 0, 1) 58%,
+                rgba(0, 0, 0, 0.5) 80%,
+                rgba(0, 0, 0, 0) 96%
+              ) !important;
+              mask-image: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 1) 0%,
+                rgba(0, 0, 0, 1) 58%,
+                rgba(0, 0, 0, 0.5) 80%,
+                rgba(0, 0, 0, 0) 96%
+              ) !important;
             }
 
             .mobile-hero-image {
-              width: 100% !important;
-              height: 100% !important;
+              max-height: 72vh !important;
+              width: auto !important;
               object-fit: contain !important;
-              object-position: bottom center !important;
+              transform: scale(0.96) !important;
+              transform-origin: bottom center !important;
             }
 
-            .hero-container {
-              flex-flow: column !important;
-              justify-content: flex-end !important;
-              align-items: flex-start !important;
-              width: 100% !important;
-              height: 100% !important;
-              min-height: clamp(
-                45.5rem,
-                220.7vw + 1.38rem,
-                105.7rem
-              ) !important;
-              padding-left: clamp(1.07rem, 5.33vw, 2.56rem) !important;
-              padding-right: clamp(1.07rem, 5.33vw, 2.56rem) !important;
-              position: relative !important;
-              z-index: 5 !important;
-            }
-
-            .hero-left-text {
-              z-index: 11 !important;
-              pointer-events: auto !important;
-              width: 100% !important;
+            /* ============================================
+               3. FLOATING SIDE CARDS (Z-INDEX: 10)
+               ============================================ */
+            /* Left Card (Creative, Reliable...) */
+            .hero-card-3 {
               position: absolute !important;
-              top: clamp(2.67rem, 13.33vw, 6.39rem) !important;
-              font-size: clamp(0.9rem, 4vw, 1.15rem) !important;
-              color: rgba(255, 255, 255, 0.85) !important;
-            }
-
-            .hero-content-layout {
-              z-index: 12 !important;
-              pointer-events: none !important;
-              flex-flow: column !important;
-              justify-content: center !important;
-              align-items: center !important;
-              width: 100% !important;
-              display: flex !important;
-              position: absolute !important;
-              bottom: clamp(12.27rem, 61.33vw, 29.43rem) !important;
-              left: 0 !important;
-              right: 0 !important;
-            }
-
-            .hero-heading {
-              pointer-events: auto !important;
-              font-size: clamp(2.25rem, 10.91vw + 0.068rem, 5.23rem) !important;
-              line-height: 1 !important;
-              color: #ffffff !important;
-              text-align: center !important;
-              width: 100% !important;
-              white-space: nowrap !important;
-            }
-
-            .hero-right-text {
-              z-index: 11 !important;
-              pointer-events: auto !important;
-              width: 100% !important;
-              position: relative !important;
-              top: clamp(2.67rem, 13.33vw, 6.39rem) !important;
-              font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
-              color: rgba(255, 255, 255, 0.8) !important;
-            }
-
-            .hero-cards-wrap {
-              opacity: 1 !important;
-              pointer-events: auto !important;
-              width: 100% !important;
-              height: clamp(23.07rem, 115.47vw, 55.42rem) !important;
-              position: absolute !important;
-              inset: auto 0% clamp(6.93rem, 34.67vw, 16.63rem) !important;
+              top: 24% !important;
+              left: clamp(0.25rem, 1.2vw, 0.5rem) !important;
+              padding: 0.5rem 0.65rem !important;
+              width: auto !important;
+              max-width: 32vw !important;
+              background: rgba(220, 218, 205, 0.55) !important;
+              backdrop-filter: blur(16px) !important;
+              -webkit-backdrop-filter: blur(16px) !important;
+              border: 1px solid rgba(255, 255, 255, 0.4) !important;
+              border-radius: 12px !important;
               z-index: 10 !important;
             }
 
-            .hero-cards-left {
-              height: 100% !important;
-              padding-top: clamp(3.2rem, 16vw, 7.67rem) !important;
-              position: relative !important;
+            .hero-card-3-item {
+              grid-column-gap: 0.35rem !important;
+              grid-row-gap: 0.28rem !important;
             }
 
+            .hero-card-3-item p {
+              color: #ffffff !important;
+              font-weight: 600 !important;
+              font-size: clamp(0.65rem, 2.5vw, 0.76rem) !important;
+              text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+            }
+
+            /* Right Card (1+ Years of experience) */
+            .hero-card-1-wrap {
+              position: absolute !important;
+              top: 26% !important;
+              right: clamp(0.25rem, 1.2vw, 0.5rem) !important;
+              left: auto !important;
+              z-index: 10 !important;
+            }
+
+            .hero-card-1 {
+              background: rgba(220, 218, 205, 0.55) !important;
+              backdrop-filter: blur(16px) !important;
+              -webkit-backdrop-filter: blur(16px) !important;
+              border: 1px solid rgba(255, 255, 255, 0.4) !important;
+              border-radius: 12px !important;
+              padding: 0.5rem 0.7rem !important;
+            }
+
+            .experience-text {
+              color: #ffffff !important;
+              font-weight: 600 !important;
+              font-size: clamp(0.65rem, 2.5vw, 0.76rem) !important;
+              text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+            }
+
+            /* ============================================
+               4. HEADING AT BOTTOM OF PORTRAIT IMAGE
+               ============================================ */
+            .hero-content-layout {
+              position: absolute !important;
+              top: auto !important;
+              bottom: clamp(6.8rem, 28vw, 10.5rem) !important;
+              transform: none !important;
+              left: 0 !important;
+              right: 0 !important;
+              width: 100% !important;
+              z-index: 12 !important;
+              display: flex !important;
+              justify-content: center !important;
+              align-items: center !important;
+              text-align: center !important;
+              pointer-events: none !important;
+              padding: 0 1rem !important;
+            }
+
+            .hero-heading {
+              font-family: "Tr 3 A", Arial, sans-serif !important;
+              font-size: clamp(2.2rem, 10vw, 3.4rem) !important;
+              font-weight: 800 !important;
+              line-height: 0.98 !important;
+              color: #000000 !important;
+              text-shadow: none !important;
+              text-align: center !important;
+            }
+
+            /* Bottom Left Card (6+ Projects) */
             .hero-card-2-wrap {
               position: absolute !important;
-              inset: auto auto 0% clamp(0.85rem, 4.27vw, 2.05rem) !important;
+              bottom: clamp(8.5rem, 34vw, 13rem) !important;
+              left: clamp(0.35rem, 1.8vw, 0.75rem) !important;
+              z-index: 10 !important;
             }
 
-            .hero-card-1-wrap {
-              align-self: flex-end !important;
-              margin-right: clamp(0.64rem, 3.2vw, 1.53rem) !important;
-              left: 0 !important;
+            .hero-card-2 {
+              background: rgba(220, 218, 205, 0.55) !important;
+              backdrop-filter: blur(16px) !important;
+              -webkit-backdrop-filter: blur(16px) !important;
+              border: 1px solid rgba(255, 255, 255, 0.4) !important;
+              border-radius: 12px !important;
+              padding: 0.55rem 0.75rem !important;
+            }
+
+            .hero-webflow-projects-text {
+              color: #ffffff !important;
+              font-weight: 600 !important;
+              font-size: clamp(0.68rem, 2.6vw, 0.78rem) !important;
+              text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+            }
+
+            /* ============================================
+               4. FULL-HEIGHT CONTAINER & CRISP BASELINE SUBTITLE
+               ============================================ */
+            .hero-container {
               position: absolute !important;
-              inset: auto 0% clamp(4rem, 20vw, 9rem) auto !important;
-            }
-
-            /* 3. Timeline Cards & Popups on Mobile */
-            .about-card-wrap {
-              opacity: 0;
-              transform: translateY(25px);
-              transition:
-                opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-              position: relative !important;
+              inset: 0 !important;
               width: 100% !important;
-              margin-bottom: 2rem !important;
-            }
-
-            .about-card-wrap.is-in-view {
-              opacity: 1 !important;
-              transform: translateY(0) !important;
-            }
-
-            .about-card {
-              width: 100% !important;
-              border-radius: 16px !important;
-              padding: 1.5rem !important;
-              box-sizing: border-box !important;
-              backdrop-filter: blur(12px) !important;
-              -webkit-backdrop-filter: blur(12px) !important;
-            }
-
-            .about-card-year {
-              font-size: 3.5rem !important;
-              line-height: 1 !important;
-              margin-bottom: 0.5rem !important;
-            }
-
-            .about-card-heading {
-              font-size: 1.35rem !important;
-              line-height: 1.25 !important;
-              margin-bottom: 0.5rem !important;
-            }
-
-            .about-card-bottom-layout {
-              margin-top: 1.25rem !important;
-              display: flex !important;
-              justify-content: space-between !important;
-              align-items: flex-end !important;
-            }
-
-            .popup-card-wrap {
-              position: fixed !important;
-              top: 50% !important;
-              left: 50% !important;
-              transform: translate(-50%, -50%) scale(0.9) !important;
-              width: 90vw !important;
-              max-width: 420px !important;
-              max-height: 85vh !important;
-              overflow-y: auto !important;
-              z-index: 99999 !important;
-              opacity: 0 !important;
+              height: 100% !important;
+              padding: 0 1.25rem !important;
               pointer-events: none !important;
-              visibility: hidden !important;
-              transition:
-                opacity 0.3s ease,
-                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.3s ease !important;
+              z-index: 20 !important;
             }
 
-            .popup-card-wrap.is-active-card {
+            .hero-left-text {
+              position: absolute !important;
+              top: auto !important;
+              bottom: clamp(3.2rem, 14vw, 4.5rem) !important;
+              left: 1.25rem !important;
+              right: 1.25rem !important;
+              font-size: 0.95rem !important;
+              font-weight: 600 !important;
+              line-height: 1.25 !important;
+              margin-bottom: 0 !important;
+              color: #111111 !important;
               opacity: 1 !important;
               pointer-events: auto !important;
-              visibility: visible !important;
-              transform: translate(-50%, -50%) scale(1) !important;
             }
 
-            .popup-card {
-              padding: 1.5rem !important;
-              border-radius: 20px !important;
-              background: linear-gradient(165deg, #2a2c28, #181917) !important;
-              border: 1px solid rgba(255, 255, 255, 0.2) !important;
-              box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
-            }
-
-            .work-card {
-              opacity: 0;
-              transform: translateY(25px);
-              transition:
-                opacity 0.6s ease,
-                transform 0.6s ease;
-            }
-
-            .work-card.is-in-view {
+            .hero-right-text {
+              position: absolute !important;
+              top: auto !important;
+              bottom: 0.8rem !important;
+              left: 1.25rem !important;
+              right: 1.25rem !important;
+              font-size: 0.82rem !important;
+              font-weight: 400 !important;
+              line-height: 1.35 !important;
+              color: #111111 !important;
               opacity: 1 !important;
-              transform: translateY(0) !important;
+              pointer-events: auto !important;
             }
           }
         </style>
@@ -2099,7 +2034,7 @@
                 The Software Engineer. That’s Harsh.
               </p>
               <div class="hero-content-layout">
-                <h1 class="hero-heading">Software Engineer</h1>
+                <h1 class="hero-heading">SOFTWARE<br />DEVELOPER</h1>
                 <div class="hero-buttons-wrap">
                   <div class="hero-cta-button">
                     <p class="button-text">Book a Call</p>
@@ -5820,12 +5755,94 @@
         }
       })();
     </script>
-
     <script>
       (function () {
         // Mobile Animation & Year Counter Engine
         function initMobileAnimations() {
           if (window.innerWidth >= 768) return;
+
+          // 0. Vertical Mobile Intro Preloader (H-A-R-S-H in Dead Center)
+          var mLoader = document.getElementById("mobile-intro-loader");
+          var mLetters = document.querySelectorAll(
+            "#mobile-intro-loader .m-letter-svg",
+          );
+          var navHeader = document.querySelector(".navigation");
+          var mobileImage = document.querySelector(".mobile-hero-image-wrap");
+          var heroCards = document.querySelectorAll(
+            ".hero-card-3, .hero-card-1-wrap, .hero-card-2-wrap",
+          );
+          var heroHeading = document.querySelector(".hero-content-layout");
+          var heroSubtitle = document.querySelector(".hero-container");
+
+          if (mLoader && mLetters.length > 0 && typeof gsap !== "undefined") {
+            // Hide page content during preloader
+            if (navHeader) gsap.set(navHeader, { opacity: 0 });
+            if (mobileImage) gsap.set(mobileImage, { opacity: 0 });
+            if (heroHeading) gsap.set(heroHeading, { opacity: 0 });
+            if (heroSubtitle) gsap.set(heroSubtitle, { opacity: 0 });
+            if (heroCards.length) gsap.set(heroCards, { opacity: 0 });
+
+            gsap.set(mLetters, { scale: 0, y: -45, opacity: 0 });
+
+            var tl = gsap.timeline({ delay: 0.15 });
+
+            // 1. Drop H -> A -> R -> S -> H sequentially into dead center
+            tl.to(mLetters, {
+              scale: 1,
+              y: 0,
+              opacity: 1,
+              stagger: 0.12,
+              duration: 0.5,
+              ease: "back.out(1.7)",
+            });
+
+            // 2. Hold in dead center
+            tl.to({}, { duration: 0.35 });
+
+            // 3. Smooth fade out of loader
+            tl.to(mLoader, {
+              opacity: 0,
+              scale: 1.06,
+              duration: 0.45,
+              ease: "power2.inOut",
+              onComplete: function () {
+                mLoader.style.display = "none";
+              },
+            });
+
+            // 4. Reveal page content
+            if (navHeader)
+              tl.to(navHeader, { opacity: 1, duration: 0.5 }, "-=0.2");
+            if (mobileImage)
+              tl.fromTo(
+                mobileImage,
+                { y: 35, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
+                "-=0.35",
+              );
+            if (heroHeading)
+              tl.fromTo(
+                heroHeading,
+                { y: 20, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.55, ease: "power2.out" },
+                "-=0.4",
+              );
+            if (heroCards.length)
+              tl.fromTo(
+                heroCards,
+                { scale: 0.85, opacity: 0 },
+                {
+                  scale: 1,
+                  opacity: 1,
+                  stagger: 0.1,
+                  duration: 0.5,
+                  ease: "back.out(1.4)",
+                },
+                "-=0.4",
+              );
+            if (heroSubtitle)
+              tl.to(heroSubtitle, { opacity: 1, duration: 0.5 }, "-=0.3");
+          }
 
           // 1. Observe and animate timeline cards & work cards on mobile scroll
           var animElements = document.querySelectorAll(
