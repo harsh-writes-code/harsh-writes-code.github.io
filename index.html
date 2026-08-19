@@ -810,6 +810,265 @@
               height: 6px !important;
             }
           }
+
+          /* ============================================
+             HEYNESH.COM 1:1 MOBILE HERO & NAVIGATION FIX
+             ============================================ */
+          @media screen and (max-width: 767px), (width < 767px) {
+            /* 1. Hide floating email pill in top bar on mobile so it never covers Harsh's name */
+            .nav-email-wrap {
+              display: none !important;
+            }
+
+            /* 2. Exact HeyNesh Hero Layering */
+            .hero {
+              pointer-events: auto !important;
+              min-height: clamp(
+                45.5rem,
+                220.7vw + 1.38rem,
+                105.7rem
+              ) !important;
+              padding-bottom: clamp(2.67rem, 13.33vw, 6.39rem) !important;
+              overflow: hidden !important;
+              position: relative !important;
+            }
+
+            .hero-sticky {
+              align-items: stretch !important;
+              height: auto !important;
+              min-height: clamp(
+                45.5rem,
+                220.7vw + 1.38rem,
+                105.7rem
+              ) !important;
+              position: relative !important;
+            }
+
+            .nesh-logo-preload {
+              z-index: 0 !important;
+              flex-flow: column !important;
+              justify-content: flex-start !important;
+              align-items: center !important;
+              height: 100% !important;
+              padding-top: clamp(
+                4.17rem,
+                20.26vw + 0.126rem,
+                9.71rem
+              ) !important;
+              padding-left: clamp(1.07rem, 5.33vw, 2.56rem) !important;
+              padding-right: clamp(1.07rem, 5.33vw, 2.56rem) !important;
+              display: flex !important;
+              position: absolute !important;
+              inset: 0% 0% auto !important;
+            }
+
+            .nesh-logo-ghost {
+              opacity: 1 !important;
+              width: 100% !important;
+              aspect-ratio: 3.8 !important;
+              color: var(--yellow) !important;
+            }
+
+            .mobile-hero-image-wrap {
+              z-index: 1 !important;
+              pointer-events: none !important;
+              justify-content: center !important;
+              align-items: flex-end !important;
+              height: clamp(40.7rem, 197.4vw + 1.23rem, 94.6rem) !important;
+              display: flex !important;
+              position: absolute !important;
+              inset: clamp(4.77rem, 23.09vw + 0.15rem, 11.07rem) 0% 0% !important;
+            }
+
+            .mobile-hero-image {
+              width: 100% !important;
+              height: 100% !important;
+              object-fit: contain !important;
+              object-position: bottom center !important;
+            }
+
+            .hero-container {
+              flex-flow: column !important;
+              justify-content: flex-end !important;
+              align-items: flex-start !important;
+              width: 100% !important;
+              height: 100% !important;
+              min-height: clamp(
+                45.5rem,
+                220.7vw + 1.38rem,
+                105.7rem
+              ) !important;
+              padding-left: clamp(1.07rem, 5.33vw, 2.56rem) !important;
+              padding-right: clamp(1.07rem, 5.33vw, 2.56rem) !important;
+              position: relative !important;
+              z-index: 5 !important;
+            }
+
+            .hero-left-text {
+              z-index: 11 !important;
+              pointer-events: auto !important;
+              width: 100% !important;
+              position: absolute !important;
+              top: clamp(2.67rem, 13.33vw, 6.39rem) !important;
+              font-size: clamp(0.9rem, 4vw, 1.15rem) !important;
+              color: rgba(255, 255, 255, 0.85) !important;
+            }
+
+            .hero-content-layout {
+              z-index: 12 !important;
+              pointer-events: none !important;
+              flex-flow: column !important;
+              justify-content: center !important;
+              align-items: center !important;
+              width: 100% !important;
+              display: flex !important;
+              position: absolute !important;
+              bottom: clamp(12.27rem, 61.33vw, 29.43rem) !important;
+              left: 0 !important;
+              right: 0 !important;
+            }
+
+            .hero-heading {
+              pointer-events: auto !important;
+              font-size: clamp(2.25rem, 10.91vw + 0.068rem, 5.23rem) !important;
+              line-height: 1 !important;
+              color: #ffffff !important;
+              text-align: center !important;
+              width: 100% !important;
+              white-space: nowrap !important;
+            }
+
+            .hero-right-text {
+              z-index: 11 !important;
+              pointer-events: auto !important;
+              width: 100% !important;
+              position: relative !important;
+              top: clamp(2.67rem, 13.33vw, 6.39rem) !important;
+              font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
+              color: rgba(255, 255, 255, 0.8) !important;
+            }
+
+            .hero-cards-wrap {
+              opacity: 1 !important;
+              pointer-events: auto !important;
+              width: 100% !important;
+              height: clamp(23.07rem, 115.47vw, 55.42rem) !important;
+              position: absolute !important;
+              inset: auto 0% clamp(6.93rem, 34.67vw, 16.63rem) !important;
+              z-index: 10 !important;
+            }
+
+            .hero-cards-left {
+              height: 100% !important;
+              padding-top: clamp(3.2rem, 16vw, 7.67rem) !important;
+              position: relative !important;
+            }
+
+            .hero-card-2-wrap {
+              position: absolute !important;
+              inset: auto auto 0% clamp(0.85rem, 4.27vw, 2.05rem) !important;
+            }
+
+            .hero-card-1-wrap {
+              align-self: flex-end !important;
+              margin-right: clamp(0.64rem, 3.2vw, 1.53rem) !important;
+              left: 0 !important;
+              position: absolute !important;
+              inset: auto 0% clamp(4rem, 20vw, 9rem) auto !important;
+            }
+
+            /* 3. Timeline Cards & Popups on Mobile */
+            .about-card-wrap {
+              opacity: 0;
+              transform: translateY(25px);
+              transition:
+                opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+              position: relative !important;
+              width: 100% !important;
+              margin-bottom: 2rem !important;
+            }
+
+            .about-card-wrap.is-in-view {
+              opacity: 1 !important;
+              transform: translateY(0) !important;
+            }
+
+            .about-card {
+              width: 100% !important;
+              border-radius: 16px !important;
+              padding: 1.5rem !important;
+              box-sizing: border-box !important;
+              backdrop-filter: blur(12px) !important;
+              -webkit-backdrop-filter: blur(12px) !important;
+            }
+
+            .about-card-year {
+              font-size: 3.5rem !important;
+              line-height: 1 !important;
+              margin-bottom: 0.5rem !important;
+            }
+
+            .about-card-heading {
+              font-size: 1.35rem !important;
+              line-height: 1.25 !important;
+              margin-bottom: 0.5rem !important;
+            }
+
+            .about-card-bottom-layout {
+              margin-top: 1.25rem !important;
+              display: flex !important;
+              justify-content: space-between !important;
+              align-items: flex-end !important;
+            }
+
+            .popup-card-wrap {
+              position: fixed !important;
+              top: 50% !important;
+              left: 50% !important;
+              transform: translate(-50%, -50%) scale(0.9) !important;
+              width: 90vw !important;
+              max-width: 420px !important;
+              max-height: 85vh !important;
+              overflow-y: auto !important;
+              z-index: 99999 !important;
+              opacity: 0 !important;
+              pointer-events: none !important;
+              visibility: hidden !important;
+              transition:
+                opacity 0.3s ease,
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.3s ease !important;
+            }
+
+            .popup-card-wrap.is-active-card {
+              opacity: 1 !important;
+              pointer-events: auto !important;
+              visibility: visible !important;
+              transform: translate(-50%, -50%) scale(1) !important;
+            }
+
+            .popup-card {
+              padding: 1.5rem !important;
+              border-radius: 20px !important;
+              background: linear-gradient(165deg, #2a2c28, #181917) !important;
+              border: 1px solid rgba(255, 255, 255, 0.2) !important;
+              box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7) !important;
+            }
+
+            .work-card {
+              opacity: 0;
+              transform: translateY(25px);
+              transition:
+                opacity 0.6s ease,
+                transform 0.6s ease;
+            }
+
+            .work-card.is-in-view {
+              opacity: 1 !important;
+              transform: translateY(0) !important;
+            }
+          }
         </style>
       </div>
       <div class="nesh-logo-preload-wrap" data-flip-origin="">
