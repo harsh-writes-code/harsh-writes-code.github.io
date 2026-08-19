@@ -1,7 +1,5 @@
 <div align="center">
 
-  <img src="Harsh.png" alt="Harsh Dhiman" width="120" height="120" style="border-radius: 50%; object-fit: cover;" />
-
   # ⚡ Harsh Dhiman — Backend Software Engineer
 
   <p align="center">
