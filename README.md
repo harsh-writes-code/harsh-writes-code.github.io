@@ -1,6 +1,6 @@
 <div align="center">
 
-  # ⚡ Harsh Dhiman — Backend Software Engineer
+  # ⚡ Harsh Dhiman — Software Developer
 
   <p align="center">
     <strong>Crafting scalable backend architectures, high-performance APIs, and robust databases.</strong>
