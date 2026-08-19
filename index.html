@@ -144,12 +144,12 @@
   </head>
   <body>
     <!-- MOBILE VERTICAL INTRO PRELOADER (EXACT DESKTOP VECTOR SVG LETTERS IN DEAD CENTER) -->
-    <div id="mobile-intro-loader">
+    <div id="mobile-intro-loader" style="display: none">
       <div class="mobile-intro-letters-wrap">
         <svg
           class="m-letter-svg"
-          viewBox="0 0 310 336"
           fill="none"
+          viewbox="0 0 310 336"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -159,8 +159,8 @@
         </svg>
         <svg
           class="m-letter-svg"
-          viewBox="338 0 332 336"
           fill="none"
+          viewbox="338 0 332 336"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -172,8 +172,8 @@
         </svg>
         <svg
           class="m-letter-svg"
-          viewBox="696 0 312 336"
           fill="none"
+          viewbox="696 0 312 336"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -185,8 +185,8 @@
         </svg>
         <svg
           class="m-letter-svg"
-          viewBox="1034 0 304 338"
           fill="none"
+          viewbox="1034 0 304 338"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -196,8 +196,8 @@
         </svg>
         <svg
           class="m-letter-svg"
-          viewBox="1365 0 312 336"
           fill="none"
+          viewbox="1365 0 312 336"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -334,6 +334,70 @@
           .line-mask {
             overflow: hidden;
             display: block;
+          }
+
+
+          /* Enterprise Project Disclaimer Pill */
+          .work-disclaimer-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.65rem;
+            background: rgba(20, 20, 20, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 999px;
+            font-size: 0.68rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-top: 0.4rem;
+            margin-bottom: 0.2rem;
+            width: fit-content;
+          }
+          .work-disclaimer-pill .disclaimer-dot {
+            color: #ffff23;
+            font-weight: 900;
+            font-size: 0.85rem;
+            line-height: 1;
+          }
+
+          /* Work Card & Mockup Image Visibility */
+          .work-card {
+            position: relative !important;
+            overflow: hidden !important;
+            background-color: #121214 !important;
+          }
+
+          .work-image {
+            opacity: 1 !important;
+            visibility: visible !important;
+            display: block !important;
+            position: absolute !important;
+            inset: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center top !important;
+            z-index: 1 !important;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+          }
+
+          .work-card:hover .work-image {
+            transform: scale(1.04) !important;
+          }
+
+          .work-card-content {
+            position: relative !important;
+            z-index: 5 !important;
+            background: linear-gradient(
+              to top,
+              rgba(10, 10, 12, 0.95) 0%,
+              rgba(10, 10, 12, 0.72) 40%,
+              rgba(10, 10, 12, 0.25) 75%,
+              rgba(10, 10, 12, 0.45) 100%
+            ) !important;
           }
 
           /* ============================================
@@ -745,7 +809,82 @@
             background: #18181b !important;
             display: inline-block !important;
           }
+
+          /* Hide mobile intro loader completely on Desktop */
+          #mobile-intro-loader {
+            display: none !important;
+          }
+
           @media (max-width: 767px) {
+            /* 0. STRICT ZERO-HORIZONTAL-OVERFLOW LOCK (PAGE LEVEL) */
+            html,
+            body {
+              overflow-x: hidden !important;
+              max-width: 100% !important;
+              width: 100% !important;
+              position: relative !important;
+            }
+
+            .page-wrap,
+            .hero,
+            .about-section,
+            .services-section,
+            .testimonial-section,
+            .faq-section,
+            .footer {
+              overflow-x: clip !important;
+              max-width: 100vw !important;
+              width: 100% !important;
+            }
+
+            /* 1. SMOOTH HORIZONTAL SWIPE CAROUSEL FOR PROJECTS */
+            .work-section,
+            .work-sticky {
+              overflow: visible !important;
+              width: 100% !important;
+            }
+
+            .work-track-wrap {
+              width: 100% !important;
+              max-width: 100vw !important;
+              overflow-x: auto !important;
+              overflow-y: hidden !important;
+              -webkit-overflow-scrolling: touch !important;
+              scroll-snap-type: x mandatory !important;
+              display: flex !important;
+              padding-left: 1.25rem !important;
+              padding-right: 1.25rem !important;
+              scrollbar-width: none !important;
+              -ms-overflow-style: none !important;
+            }
+
+            .work-track-wrap::-webkit-scrollbar {
+              display: none !important;
+              width: 0 !important;
+              height: 0 !important;
+            }
+
+            .work-track {
+              display: flex !important;
+              flex-direction: row !important;
+              flex-wrap: nowrap !important;
+              gap: 1.25rem !important;
+              width: max-content !important;
+              padding-bottom: 0.5rem !important;
+            }
+
+            .work-card {
+              flex: 0 0 84vw !important;
+              max-width: 84vw !important;
+              width: 84vw !important;
+              scroll-snap-align: center !important;
+            }
+
+            .work-image-overlay {
+              width: 100% !important;
+              height: 100% !important;
+            }
+
             .nav-skill-pill {
               gap: 1.5vw !important;
               padding: clamp(0.35rem, 1.8vw, 0.6rem) clamp(0.75rem, 3.5vw, 1.2rem) !important;
@@ -1217,7 +1356,7 @@
                   data-tl-to="{'scale' : 1, 'opacity' : 1}"
                   data-tl-trigger=".hero"
                   data-tl-type="scroll"
-                  href="https://www.linkedin.com/in/harsh-dhiman-barara"
+                  href="#contact"
                   target="_blank"
                   ><svg
                     class="instagram"
@@ -3622,32 +3761,14 @@
                   <a
                     aria-label="View Membership &amp; Event Management project"
                     class="work-card w-inline-block"
-                    href="https://www.Membership &amp; Event Management/"
+                    href="#contact"
                     target="_blank"
                     ><img
-                      alt="Black and purple molecular structure model with a complex, spherical purple cluster on a black background."
+                      alt="Membership &amp; Event Management Enterprise Dashboard UI Mockup"
                       class="work-image"
                       loading="lazy"
-                      src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/693a07b40e774226223d6d23_Frame%20116046242.avif" />
-                    <div class="w-embed">
-                      <video
-                        class="work-bg"
-                        data-src="https://f1-assets.b-cdn.net/Client%20-%201910%20(Background).mp4"
-                        loop=""
-                        muted=""
-                        playsinline=""
-                        poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc888097b7646f83cf8_Client%20-%201910%20(Background).avif"
-                        preload="none"
-                        style="
-                          position: absolute;
-                          top: 0;
-                          left: 0;
-                          width: 100%;
-                          height: 100%;
-                          object-fit: cover;
-                        "
-                      ></video>
-                    </div>
+                      src="project_membership.jpg" />
+                    <div class="w-embed"></div>
                     <div class="work-card-content">
                       <div class="work-card-content-top-layout">
                         <div class="work-label">01</div>
@@ -3657,30 +3778,15 @@
                           <div class="work-label">Tailwind v4</div>
                         </div>
                       </div>
-                      <div class="w-embed">
-                        <video
-                          class="work-video"
-                          data-mov="1910-optimised.mov"
-                          data-webm="1910-optimised.webm"
-                          loop=""
-                          muted=""
-                          playsinline=""
-                          poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc8bd343b5a6bd033a6_1910%20-%20Transparent.avif"
-                          preload="none"
-                          style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                          "
-                        ></video>
-                      </div>
+                      <div class="w-embed"></div>
                       <div class="work-card-content-bottom-layout">
                         <h3 class="work-card-heading">
                           Membership &amp; Event Management
                         </h3>
+                        <div class="work-disclaimer-pill">
+                          <span class="disclaimer-dot">•</span> Enterprise
+                          Project (NDA / Client IP) • Representative UI Mockup
+                        </div>
                         <p class="op80">
                           End-to-end full-stack platform with custom Blade &amp;
                           Tailwind v4 UI: member profiles, KYC verification,
@@ -3764,33 +3870,15 @@
                   ><a
                     aria-label="View Drishti Management Portal project"
                     class="work-card w-inline-block"
-                    href="https://www.semiconbio.com/"
+                    href="#contact"
                     id="test-1"
                     target="_blank"
                     ><img
-                      alt=""
+                      alt="Drishti Management Portal Enterprise Workflow UI Mockup"
                       class="work-image"
                       loading="lazy"
-                      src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/693a080d17ca1d8d0c085a58_Frame%20116046298.avif" />
-                    <div class="w-embed">
-                      <video
-                        class="work-bg"
-                        data-src="https://f1-assets.b-cdn.net/nesh-work/Portfolio%20Work/Semiconbio-bg-final.webm"
-                        loop=""
-                        muted=""
-                        playsinline=""
-                        poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a4270735394074d405d8cdb_Drishti Management Portal%20-%20Update%2003.avif"
-                        preload="none"
-                        style="
-                          position: absolute;
-                          top: 0;
-                          left: 0;
-                          width: 100%;
-                          height: 100%;
-                          object-fit: cover;
-                        "
-                      ></video>
-                    </div>
+                      src="project_drishti.jpg" />
+                    <div class="w-embed"></div>
                     <div class="work-card-content">
                       <div class="work-card-content-top-layout">
                         <div class="work-label">02</div>
@@ -3800,30 +3888,15 @@
                           <div class="work-label">Vite &amp; Tailwind</div>
                         </div>
                       </div>
-                      <div class="w-embed">
-                        <video
-                          class="work-video"
-                          data-mov="Semiconbio-optimised.mov"
-                          data-webm="Client - Drishti Management Portal.webm"
-                          loop=""
-                          muted=""
-                          playsinline=""
-                          poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc80e9268be5e6f17f2_Drishti Management Portal%20-%20Transparent.avif"
-                          preload="none"
-                          style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                          "
-                        ></video>
-                      </div>
+                      <div class="w-embed"></div>
                       <div class="work-card-content-bottom-layout">
                         <h3 class="work-card-heading">
                           Drishti Management Portal
                         </h3>
+                        <div class="work-disclaimer-pill">
+                          <span class="disclaimer-dot">•</span> Enterprise
+                          Project (NDA / Client IP) • Representative UI Mockup
+                        </div>
                         <p class="op80">
                           Full-stack enterprise portal with responsive frontend
                           interface (Laravel 12, PHP 8.2, Tailwind v4):
@@ -3911,29 +3984,11 @@
                     href="https://happyring.fiftyseven.co/"
                     target="_blank"
                     ><img
-                      alt="Close-up of a smiling woman touching her cheek with her hand wearing a gray ring."
+                      alt="Enterprise Database Search &amp; Indexing Engine Interface Mockup"
                       class="work-image"
                       loading="lazy"
-                      src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/693a07b45d5bf5df6ed763ff_Frame%20116046247.avif" />
-                    <div class="w-embed">
-                      <video
-                        class="work-bg"
-                        data-src="https://f1-assets.b-cdn.net/nesh-work/Portfolio%20Work/Happy-Ring-Optimised-background.webm"
-                        loop=""
-                        muted=""
-                        playsinline=""
-                        poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc91b5db38eeb9f9a79_Client%20-%20Happy%20Ring%20(Background).avif"
-                        preload="none"
-                        style="
-                          position: absolute;
-                          top: 0;
-                          left: 0;
-                          width: 100%;
-                          height: 100%;
-                          object-fit: cover;
-                        "
-                      ></video>
-                    </div>
+                      src="project_db_search.jpg" />
+                    <div class="w-embed"></div>
                     <div class="work-card-content">
                       <div class="work-card-content-top-layout">
                         <div class="work-label">03</div>
@@ -3943,30 +3998,15 @@
                           <div class="work-label">Multi-ORM</div>
                         </div>
                       </div>
-                      <div class="w-embed">
-                        <video
-                          class="work-video"
-                          data-mov="Happy-Ring-Optimised.mov"
-                          data-webm="Happy-Ring-Optimised.webm"
-                          loop=""
-                          muted=""
-                          playsinline=""
-                          poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc9e60eb2e1ad2902d8_Happy%20Ring%20-%20Transparent.avif"
-                          preload="none"
-                          style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                          "
-                        ></video>
-                      </div>
+                      <div class="w-embed"></div>
                       <div class="work-card-content-bottom-layout">
                         <h3 class="work-card-heading">
                           Enterprise Database Search
                         </h3>
+                        <div class="work-disclaimer-pill">
+                          <span class="disclaimer-dot">•</span> Enterprise
+                          Project (NDA / Client IP) • Representative UI Mockup
+                        </div>
                         <p class="op80">
                           Unified full-stack cross-database search application
                           supporting MySQL, PostgreSQL, SQL Server, MongoDB with
@@ -4053,29 +4093,11 @@
                     href="https://pssltd.co.uk/"
                     target="_blank"
                     ><img
-                      alt="Close-up of a smiling woman touching her cheek with her hand wearing a gray ring."
+                      alt="Hospital Management System Clinical &amp; Patient Records UI Mockup"
                       class="work-image"
                       loading="lazy"
-                      src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/693a07b45d5bf5df6ed763ff_Frame%20116046247.avif" />
-                    <div class="w-embed">
-                      <video
-                        class="work-bg"
-                        data-src="https://f1-assets.b-cdn.net/nesh-work/Portfolio%20Work/pss-bg.webm"
-                        loop=""
-                        muted=""
-                        playsinline=""
-                        poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc8b12f78cbd2eb83c3_Client%20-%20Hospital Management System%20(Background).avif"
-                        preload="none"
-                        style="
-                          position: absolute;
-                          top: 0;
-                          left: 0;
-                          width: 100%;
-                          height: 100%;
-                          object-fit: cover;
-                        "
-                      ></video>
-                    </div>
+                      src="project_hospital.jpg" />
+                    <div class="w-embed"></div>
                     <div class="work-card-content">
                       <div class="work-card-content-top-layout">
                         <div class="work-label">04</div>
@@ -4085,30 +4107,15 @@
                           <div class="work-label">Redis &amp; S3</div>
                         </div>
                       </div>
-                      <div class="w-embed">
-                        <video
-                          class="work-video"
-                          data-mov="Client - Hospital Management System-1.mov"
-                          data-webm="pss.webm"
-                          loop=""
-                          muted=""
-                          playsinline=""
-                          poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc8915804b4fe39ce44_Hospital Management System%20-%20Transparent.avif"
-                          preload="none"
-                          style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                          "
-                        ></video>
-                      </div>
+                      <div class="w-embed"></div>
                       <div class="work-card-content-bottom-layout">
                         <h3 class="work-card-heading">
                           Hospital Management System
                         </h3>
+                        <div class="work-disclaimer-pill">
+                          <span class="disclaimer-dot">•</span> Enterprise
+                          Project (NDA / Client IP) • Representative UI Mockup
+                        </div>
                         <p class="op80">
                           Scalable backend REST APIs and microservice
                           architecture built with Node.js, Express.js,
@@ -4193,32 +4200,14 @@
                   ><a
                     aria-label="Revenue Land Records System"
                     class="work-card w-inline-block"
-                    href="https://www.lilipadlibrary.org/"
+                    href="#contact"
                     target="_blank"
                     ><img
-                      alt="Close-up of a smiling woman touching her cheek with her hand wearing a gray ring."
+                      alt="Finance Management System Ledger &amp; Analytics UI Mockup"
                       class="work-image"
                       loading="lazy"
-                      src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/693a07b45d5bf5df6ed763ff_Frame%20116046247.avif" />
-                    <div class="w-embed">
-                      <video
-                        class="work-bg"
-                        data-src="https://f1-assets.b-cdn.net/nesh-work/Portfolio%20Work/lilipad-bg-optimised.webm"
-                        loop=""
-                        muted=""
-                        playsinline=""
-                        poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a427154fa2677d27a964842_Client%20-%20Revenue Land Records System%20(Background).avif"
-                        preload="none"
-                        style="
-                          position: absolute;
-                          top: 0;
-                          left: 0;
-                          width: 100%;
-                          height: 100%;
-                          object-fit: cover;
-                        "
-                      ></video>
-                    </div>
+                      src="project_finance.jpg" />
+                    <div class="w-embed"></div>
                     <div class="work-card-content">
                       <div class="work-card-content-top-layout">
                         <div class="work-label">05</div>
@@ -4228,30 +4217,15 @@
                           <div class="work-label">Redis</div>
                         </div>
                       </div>
-                      <div class="w-embed">
-                        <video
-                          class="work-video"
-                          data-mov="Client - Revenue Land Records System_1-1.mov"
-                          data-webm="lilipad-optimised.webm"
-                          loop=""
-                          muted=""
-                          playsinline=""
-                          poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc888097b7646f83ca2_Revenue Land Records System%20-%20Transparent.avif"
-                          preload="none"
-                          style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                          "
-                        ></video>
-                      </div>
+                      <div class="w-embed"></div>
                       <div class="work-card-content-bottom-layout">
                         <h3 class="work-card-heading">
                           Finance Management System
                         </h3>
+                        <div class="work-disclaimer-pill">
+                          <span class="disclaimer-dot">•</span> Enterprise
+                          Project (NDA / Client IP) • Representative UI Mockup
+                        </div>
                         <p class="op80">
                           High-performance financial backend engine and REST
                           APIs built with Node.js &amp; Laravel: multi-tenant
@@ -4338,29 +4312,11 @@
                     href="https://omicronblockchain.com/"
                     target="_blank"
                     ><img
-                      alt="Close-up of a purple circular gem or token mounted on a black square pedestal with silver metallic rings on a dark grid surface."
+                      alt="Revenue Land Records &amp; Geospatial Parcel Registry UI Mockup"
                       class="work-image"
                       loading="lazy"
-                      src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/693a07b4c7536983db8aa94b_Frame%20116046243.avif" />
-                    <div class="w-embed">
-                      <video
-                        class="work-bg"
-                        data-src="https://f1-assets.b-cdn.net/nesh-work/Portfolio%20Work/omicron-bg.webm"
-                        loop=""
-                        muted=""
-                        playsinline=""
-                        poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc8e57f823bcb23eb4a_Client%20-%20AI News Aggregator &amp; Auto Publisher%20(Background).avif"
-                        preload="none"
-                        style="
-                          position: absolute;
-                          top: 0;
-                          left: 0;
-                          width: 100%;
-                          height: 100%;
-                          object-fit: cover;
-                        "
-                      ></video>
-                    </div>
+                      src="project_land_records.jpg" />
+                    <div class="w-embed"></div>
                     <div class="work-card-content">
                       <div class="work-card-content-top-layout">
                         <div class="work-label">06</div>
@@ -4370,30 +4326,15 @@
                           <div class="work-label">MySQL</div>
                         </div>
                       </div>
-                      <div class="w-embed">
-                        <video
-                          class="work-video"
-                          data-mov="omicron.mov"
-                          data-webm="omicron.webm"
-                          loop=""
-                          muted=""
-                          playsinline=""
-                          poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc861358fc9caebadd7_AI News Aggregator &amp; Auto Publisher%20-%20Transparent.avif"
-                          preload="none"
-                          style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                          "
-                        ></video>
-                      </div>
+                      <div class="w-embed"></div>
                       <div class="work-card-content-bottom-layout">
                         <h3 class="work-card-heading">
                           Revenue Land Records System
                         </h3>
+                        <div class="work-disclaimer-pill">
+                          <span class="disclaimer-dot">•</span> Enterprise
+                          Project (NDA / Client IP) • Representative UI Mockup
+                        </div>
                         <p class="op80">
                           Full-stack land record and parcel management system
                           (Laravel, MySQL, custom UI): landowner KYC
@@ -4477,32 +4418,14 @@
                   ><a
                     aria-label="View Omega Broadcast Backend Engine project"
                     class="work-card w-inline-block"
-                    href="https://www.careerpuck.com/"
+                    href="#contact"
                     target="_blank"
                     ><img
-                      alt="Abstract illustration of two stylized figures giving a high-five against a gradient blue background."
+                      alt="AI News Aggregator &amp; Content Automation Dashboard UI Mockup"
                       class="work-image"
                       loading="lazy"
-                      src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/693a07b4ea501cfa7bfc61bc_Frame%20116046248.avif" />
-                    <div class="w-embed">
-                      <video
-                        class="work-bg"
-                        data-src="https://f1-assets.b-cdn.net/nesh-work/Portfolio%20Work/puck-bg.webm"
-                        loop=""
-                        muted=""
-                        playsinline=""
-                        poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc807f9848ecf6a2844_Client%20-%20Omega Broadcast Backend Engine%20(Background).avif"
-                        preload="none"
-                        style="
-                          position: absolute;
-                          top: 0;
-                          left: 0;
-                          width: 100%;
-                          height: 100%;
-                          object-fit: cover;
-                        "
-                      ></video>
-                    </div>
+                      src="project_ai_news.jpg" />
+                    <div class="w-embed"></div>
                     <div class="work-card-content">
                       <div class="work-card-content-top-layout">
                         <div class="work-label">07</div>
@@ -4512,30 +4435,15 @@
                           <div class="work-label">AI APIs</div>
                         </div>
                       </div>
-                      <div class="w-embed">
-                        <video
-                          class="work-video"
-                          data-mov="Client - Omega Broadcast Backend Engine-1.mov"
-                          data-webm="puck.webm"
-                          loop=""
-                          muted=""
-                          playsinline=""
-                          poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc825fe47bc504e5594_Omega Broadcast Backend Engine%20-%20Transparent.avif"
-                          preload="none"
-                          style="
-                            position: absolute;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            object-fit: contain;
-                          "
-                        ></video>
-                      </div>
+                      <div class="w-embed"></div>
                       <div class="work-card-content-bottom-layout">
                         <h3 class="work-card-heading">
                           AI News Aggregator &amp; Auto Publisher
                         </h3>
+                        <div class="work-disclaimer-pill">
+                          <span class="disclaimer-dot">•</span> Enterprise
+                          Project (NDA / Client IP) • Representative UI Mockup
+                        </div>
                         <p class="op80">
                           High-concurrency backend engine engineered with
                           Node.js, Express, TypeScript, and Redis: automated RSS
@@ -4617,7 +4525,7 @@
                     </div>
                     <div class="work-image-overlay"></div></a
                   ><!-- Omega Broadcast Enterprise APIs Card
-<a aria-label="View Omega Broadcast Backend Engine project" href="https://www.alosant.com/" target="_blank" class="work-card w-inline-block"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/693a07b48a5e0c4375823c97_Frame%20116046251.avif" loading="lazy" alt="Smiling woman sitting on wooden chair and looking at her smartphone in dimly lit outdoor setting with lantern in background." class="work-image"/><div class="w-embed">
+<a aria-label="View Omega Broadcast Backend Engine project" href="#contact" target="_blank" class="work-card w-inline-block"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/693a07b48a5e0c4375823c97_Frame%20116046251.avif" loading="lazy" alt="Smiling woman sitting on wooden chair and looking at her smartphone in dimly lit outdoor setting with lantern in background." class="work-image"/><div class="w-embed">
 
 <video class="work-bg" muted loop playsinline preload="none"
   		poster="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6a426dc82aeeb32d25045e95_Client%20-%20Omega Broadcast Backend Engine%20(Background).avif"
@@ -5162,7 +5070,7 @@
           </div>
         </section>
         <!-- Clients / Testimonial Section
-<section id="testimonial" class="testimonial_section"><div class="container"><div id="client_column" class="column"><div data-tl-once="" data-tl-type="trigger" data-tl-trigger="#client_column" data-tl-start="top 90%" data-tl-from="{&#x27;width&#x27;:&#x27;0vw&#x27;,&#x27;opacity&#x27;:0}" data-tl-to="{   &#x27;width&#x27;:&#x27;auto&#x27;,   &#x27;opacity&#x27;:1,   &#x27;duration&#x27;:0.7,   &#x27;ease&#x27;:&#x27;expo.inOut&#x27; }" class="label">TESTIMONIALS</div><h2 data-tl-once="" data-tl-type="trigger" data-tl-trigger="#client_column" data-tl-start="top 90%" data-tl-split="lines" data-tl-from="{&#x27;yPercent&#x27;: 100}" data-tl-to="{&#x27;yPercent&#x27;: 0,  &#x27;duration&#x27;: 0.6, &#x27;stagger&#x27;: 0.1, &#x27;delay&#x27;: 0.3, &#x27;ease&#x27;: &#x27;power2.out&#x27;}" class="h2-style margin-bottom-s">From People <br/>I&#x27;ve Worked with</h2></div><div class="swiper-main-wrap"><div class="swiper-pagination"><div class="swiper-bullet"></div></div><div class="swiper"><div class="swiper-wrapper"><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">Trusted <br/>long-term collaborator.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>Harsh has been a fantastic partner to work with and continues to be an essential part of our team<strong>.</strong> He communicates clearly and promptly, and his work consistently exceeds expectations. He resolves technical challenges quickly and efficiently, always demonstrating skill, reliability, and a strong commitment to quality.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7da98bd68220e4f1d95_Danette%20Beal.avif" loading="lazy" alt="Danette Beal | VP of Marketing Omega Broadcast Backend Engine" class="client-img"/><div class="client-info"><p class="text-weight-medium">Danette Beal</p><p class="client-text-small">VP of Marketing</p><a href="https://www.alosant.com/" target="_blank" class="client-text-link">Omega Broadcast Backend Engine.com</a></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">Thinks through <br/>the entire experience.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>Harsh doesn&#x27;t just code Webflow—he thinks through the experience. Motion, pacing, narrative flow: all aligned with technical excellence. The result is sites that feel cohesive, intentional, complete. A true partner in execution. No gaps, no compromises.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6985e810b5401268eec901f2_petar_s.jpeg" loading="lazy" sizes="100vw" srcset="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6985e810b5401268eec901f2_petar_s-p-500.jpeg 500w, https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6985e810b5401268eec901f2_petar_s.jpeg 800w" alt="" class="client-img"/><div class="client-info"><p class="text-weight-medium">Petar Stojakovic</p><p class="client-text-small">Founder </p><a href="https://www.fiftyseven.co/" target="_blank" class="client-text-link">fiftyseven.co</a></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">Reliable, skilled, <br/>and easy to work with.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>Harsh was great to work with! He delivered our websites on time, gave our design team helpful guidance, and suggested smarter solutions that really improved the final results. Super reliable and easy to collaborate with — highly recommend!</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7da275434728f43945b_Klemen%20Vute.avif" loading="lazy" alt="Klemen Vute | PM from Povio" class="client-img"/><div class="client-info"><p class="text-weight-medium">Klemen Vute</p><p class="client-text-small">PM from Povio</p><a href="https://povio.com/" target="_blank" class="client-text-link">Povio.com</a></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading"><strong>The details that <br/>set him apart.</strong></h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>I’ve worked with Harsh for many years, and he still surprises me with the speed and quality of his work. His attention to the small details, the ones most engineers overlook makes all the difference for great websites. He’s reliable, fun to collaborate with, and consistently delivers beyond expectations. As long as he wants to work with us, we’ll keep building together.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6942a06175766f34258d7ba2_testimonial.avif" loading="lazy" alt="Johana | Co-Founder Moat agency" class="client-img"/><div class="client-info"><p class="text-weight-medium">Johanna Dahlroos</p><p class="client-text-small">Co-Founder and Creative Director</p><a href="https://www.moat-studio.com/" target="_blank" class="client-text-link">Moat Agency</a></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">Design-focused, <br/>reliable development.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>We’ve hired Harsh for several projects, and working with him has always been effortless thanks to his good understanding of design. He’s dedicated to perfecting each delivery for our clients, ensuring a smooth and engaging web experience.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7da5c13ee5098356e14_Marko%20Ivanvoic.avif" loading="lazy" alt="Marko Ivanovic Brand Designer | Legacy" class="client-img"/><div class="client-info"><p class="text-weight-medium">Marko Ivanovic</p><p class="client-text-small">Legacy Agency</p></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">A developer with a <br/>true product mindset.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>Harsh is a rare blend of speed, quality, and collaboration. He actively contributes ideas that improve how designs translate into development, and he approaches every build with a product mindset. He’s reliable, detail-oriented, and consistently delivers high-quality work on tight timelines.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7dac698cc34d76e4278_Chrissy.avif" loading="lazy" alt="Chrissy Cowdrey | Product Designer" class="client-img"/><div class="client-info"><p class="text-weight-medium">Chrissy Cowdrey</p><p class="client-text-small">Product/Web Designer</p></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">A proven <br/>expert you trust.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>I’ve been working with Harsh for years and have always been impressed by his work ethic, fast turnaround, and attention to detail. Harsh clearly knows his craft, takes a thoughtful and disciplined approach to his work, and consistently delivers results that meet a high professional standard.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7da184f7fad9ddaeb59_Marko%20Ilic.avif" loading="lazy" alt="Marko Ilic | CEO at SeeDesign" class="client-img"/><div class="client-info"><p class="text-weight-medium">Marko Ilic</p><p class="client-text-small">Founder</p><a href="https://see.design/" target="_blank" class="client-text-link">see.design</a></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">Exceptional leadership and technical ownership.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>We loved working with Harsh on the Autorank website. He showed exceptional leadership throughout the project, taking full ownership of the website infrastructure and guiding key technical decisions. His structured approach and attention to quality ensured a reliable and scalable outcome.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7da275434728f43945f_Bart.avif" loading="lazy" alt="Bart-Jan Leyts | CEO Autorank" class="client-img"/><div class="client-info"><p class="text-weight-medium">Bart-Jan Leyts</p><p class="client-text-small">CEO</p><a href="https://www.autorank.com/" target="_blank" class="client-text-link">Autorank.com</a></div></div></div></div></div></div></div></div></section><div class="drag-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none" class="drag-left-icon"><path d="M1.5 4.13397C0.833334 4.51887 0.833333 5.48113 1.5 5.86603L6 8.4641C6.66667 8.849 7.5 8.36788 7.5 7.59808L7.5 2.40192C7.5 1.63212 6.66667 1.151 6 1.5359L1.5 4.13397Z" fill="currentColor"></path></svg><div class="drag-circle"><div class="drag-circle-span"><p>drag</p><p>click</p></div></div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none" class="drag-right-icon"><path d="M8.5 5.86603C9.16667 5.48113 9.16667 4.51887 8.5 4.13397L4 1.5359C3.33333 1.151 2.5 1.63212 2.5 2.40192L2.5 7.59808C2.5 8.36788 3.33333 8.849 4 8.4641L8.5 5.86603Z" fill="currentColor"></path></svg></div>
+<section id="testimonial" class="testimonial_section"><div class="container"><div id="client_column" class="column"><div data-tl-once="" data-tl-type="trigger" data-tl-trigger="#client_column" data-tl-start="top 90%" data-tl-from="{&#x27;width&#x27;:&#x27;0vw&#x27;,&#x27;opacity&#x27;:0}" data-tl-to="{   &#x27;width&#x27;:&#x27;auto&#x27;,   &#x27;opacity&#x27;:1,   &#x27;duration&#x27;:0.7,   &#x27;ease&#x27;:&#x27;expo.inOut&#x27; }" class="label">TESTIMONIALS</div><h2 data-tl-once="" data-tl-type="trigger" data-tl-trigger="#client_column" data-tl-start="top 90%" data-tl-split="lines" data-tl-from="{&#x27;yPercent&#x27;: 100}" data-tl-to="{&#x27;yPercent&#x27;: 0,  &#x27;duration&#x27;: 0.6, &#x27;stagger&#x27;: 0.1, &#x27;delay&#x27;: 0.3, &#x27;ease&#x27;: &#x27;power2.out&#x27;}" class="h2-style margin-bottom-s">From People <br/>I&#x27;ve Worked with</h2></div><div class="swiper-main-wrap"><div class="swiper-pagination"><div class="swiper-bullet"></div></div><div class="swiper"><div class="swiper-wrapper"><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">Trusted <br/>long-term collaborator.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>Harsh has been a fantastic partner to work with and continues to be an essential part of our team<strong>.</strong> He communicates clearly and promptly, and his work consistently exceeds expectations. He resolves technical challenges quickly and efficiently, always demonstrating skill, reliability, and a strong commitment to quality.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7da98bd68220e4f1d95_Danette%20Beal.avif" loading="lazy" alt="Danette Beal | VP of Marketing Omega Broadcast Backend Engine" class="client-img"/><div class="client-info"><p class="text-weight-medium">Danette Beal</p><p class="client-text-small">VP of Marketing</p><a href="#contact" target="_blank" class="client-text-link">Omega Broadcast Backend Engine.com</a></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">Thinks through <br/>the entire experience.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>Harsh doesn&#x27;t just code Webflow—he thinks through the experience. Motion, pacing, narrative flow: all aligned with technical excellence. The result is sites that feel cohesive, intentional, complete. A true partner in execution. No gaps, no compromises.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6985e810b5401268eec901f2_petar_s.jpeg" loading="lazy" sizes="100vw" srcset="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6985e810b5401268eec901f2_petar_s-p-500.jpeg 500w, https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6985e810b5401268eec901f2_petar_s.jpeg 800w" alt="" class="client-img"/><div class="client-info"><p class="text-weight-medium">Petar Stojakovic</p><p class="client-text-small">Founder </p><a href="#contact" target="_blank" class="client-text-link">fiftyseven.co</a></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">Reliable, skilled, <br/>and easy to work with.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>Harsh was great to work with! He delivered our websites on time, gave our design team helpful guidance, and suggested smarter solutions that really improved the final results. Super reliable and easy to collaborate with — highly recommend!</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7da275434728f43945b_Klemen%20Vute.avif" loading="lazy" alt="Klemen Vute | PM from Povio" class="client-img"/><div class="client-info"><p class="text-weight-medium">Klemen Vute</p><p class="client-text-small">PM from Povio</p><a href="https://povio.com/" target="_blank" class="client-text-link">Povio.com</a></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading"><strong>The details that <br/>set him apart.</strong></h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>I’ve worked with Harsh for many years, and he still surprises me with the speed and quality of his work. His attention to the small details, the ones most engineers overlook makes all the difference for great websites. He’s reliable, fun to collaborate with, and consistently delivers beyond expectations. As long as he wants to work with us, we’ll keep building together.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/6942a06175766f34258d7ba2_testimonial.avif" loading="lazy" alt="Johana | Co-Founder Moat agency" class="client-img"/><div class="client-info"><p class="text-weight-medium">Johanna Dahlroos</p><p class="client-text-small">Co-Founder and Creative Director</p><a href="#contact" target="_blank" class="client-text-link">Moat Agency</a></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">Design-focused, <br/>reliable development.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>We’ve hired Harsh for several projects, and working with him has always been effortless thanks to his good understanding of design. He’s dedicated to perfecting each delivery for our clients, ensuring a smooth and engaging web experience.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7da5c13ee5098356e14_Marko%20Ivanvoic.avif" loading="lazy" alt="Marko Ivanovic Brand Designer | Legacy" class="client-img"/><div class="client-info"><p class="text-weight-medium">Marko Ivanovic</p><p class="client-text-small">Legacy Agency</p></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">A developer with a <br/>true product mindset.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>Harsh is a rare blend of speed, quality, and collaboration. He actively contributes ideas that improve how designs translate into development, and he approaches every build with a product mindset. He’s reliable, detail-oriented, and consistently delivers high-quality work on tight timelines.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7dac698cc34d76e4278_Chrissy.avif" loading="lazy" alt="Chrissy Cowdrey | Product Designer" class="client-img"/><div class="client-info"><p class="text-weight-medium">Chrissy Cowdrey</p><p class="client-text-small">Product/Web Designer</p></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">A proven <br/>expert you trust.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>I’ve been working with Harsh for years and have always been impressed by his work ethic, fast turnaround, and attention to detail. Harsh clearly knows his craft, takes a thoughtful and disciplined approach to his work, and consistently delivers results that meet a high professional standard.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7da184f7fad9ddaeb59_Marko%20Ilic.avif" loading="lazy" alt="Marko Ilic | CEO at SeeDesign" class="client-img"/><div class="client-info"><p class="text-weight-medium">Marko Ilic</p><p class="client-text-small">Founder</p><a href="https://see.design/" target="_blank" class="client-text-link">see.design</a></div></div></div></div><div class="swiper-slide"><div class="swiper-card"><div class="column"><div class="swiper-card-top"><h3 class="swiper-heading">Exceptional leadership and technical ownership.</h3><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 30 30" fill="none" class="swiper-quote-icon"><rect width="30" height="30" rx="4.5" fill="#FFFF23"></rect><path d="M9.75 20.07V17.97C11.01 17.76 11.91 16.98 11.91 15.06H9.75V10.5H14.31V15.06C14.31 17.76 12.69 19.65 9.75 20.07ZM15.75 20.07V17.97C17.01 17.76 17.91 16.98 17.91 15.06H15.75V10.5H20.31V15.06C20.31 17.76 18.69 19.65 15.75 20.07Z" fill="black" fill-opacity="0.7"></path></svg></div><p>We loved working with Harsh on the Autorank website. He showed exceptional leadership throughout the project, taking full ownership of the website infrastructure and guiding key technical decisions. His structured approach and attention to quality ensured a reliable and scalable outcome.</p></div><div class="swiper-card-bottom"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/694ea7da275434728f43945f_Bart.avif" loading="lazy" alt="Bart-Jan Leyts | CEO Autorank" class="client-img"/><div class="client-info"><p class="text-weight-medium">Bart-Jan Leyts</p><p class="client-text-small">CEO</p><a href="#contact" target="_blank" class="client-text-link">Autorank.com</a></div></div></div></div></div></div></div></div></section><div class="drag-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none" class="drag-left-icon"><path d="M1.5 4.13397C0.833334 4.51887 0.833333 5.48113 1.5 5.86603L6 8.4641C6.66667 8.849 7.5 8.36788 7.5 7.59808L7.5 2.40192C7.5 1.63212 6.66667 1.151 6 1.5359L1.5 4.13397Z" fill="currentColor"></path></svg><div class="drag-circle"><div class="drag-circle-span"><p>drag</p><p>click</p></div></div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 10 10" fill="none" class="drag-right-icon"><path d="M8.5 5.86603C9.16667 5.48113 9.16667 4.51887 8.5 4.13397L4 1.5359C3.33333 1.151 2.5 1.63212 2.5 2.40192L2.5 7.59808C2.5 8.36788 3.33333 8.849 4 8.4641L8.5 5.86603Z" fill="currentColor"></path></svg></div>
 -->
       </main>
       <footer class="footer">
