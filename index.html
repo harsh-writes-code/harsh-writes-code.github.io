@@ -10,62 +10,59 @@
   <head>
     <meta charset="utf-8" />
     <link
-      rel="preconnect"
+      crossorigin=""
       href="https://cdn.prod.website-files.com"
-      crossorigin
+      rel="preconnect"
     />
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
-    <link rel="dns-prefetch" href="https://d3e54v103j8qbb.cloudfront.net" />
+    <link href="https://cdn.jsdelivr.net" rel="dns-prefetch" />
+    <link href="https://d3e54v103j8qbb.cloudfront.net" rel="dns-prefetch" />
     <title>
       Harsh Dhiman — Software Engineer | Full-Stack &amp; Backend Developer
     </title>
     <meta
-      name="description"
       content="Harsh Dhiman is a Software Engineer specializing in scalable full-stack web applications (Laravel, CodeIgniter, WordPress, Tailwind) and high-performance backend REST APIs (Node.js, Express, TypeScript, MySQL, Redis, AWS)."
+      name="description"
     />
     <meta
-      name="keywords"
       content="Harsh Dhiman, Harsh Dhiman Software Engineer, Harsh Dhiman Backend Developer, Harsh Dhiman Full Stack, Harsh Dhiman Portfolio, Harsh Dhiman Noida, Laravel Developer, Node.js Developer, harsh-writes-code, harshd.is-a.dev"
+      name="keywords"
     />
-    <meta name="author" content="Harsh Dhiman" />
-    <link rel="canonical" href="https://harshd.is-a.dev/" />
+    <meta content="Harsh Dhiman" name="author" />
+    <link href="https://harshd.is-a.dev/" rel="canonical" />
     <meta
-      name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      name="robots"
     />
-    <meta name="googlebot" content="index, follow" />
+    <meta content="index, follow" name="googlebot" />
     <meta
-      name="google-site-verification"
       content="h4dB808c53dihCJBnKS3UkaktT3Pb1G32q3xv2CIgcU"
+      name="google-site-verification"
     />
-
     <!-- Open Graph (Facebook / LinkedIn) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://harshd.is-a.dev/" />
+    <meta content="website" property="og:type" />
+    <meta content="https://harshd.is-a.dev/" property="og:url" />
     <meta
+      content="Harsh Dhiman — Software Engineer | Full-Stack &amp; Backend Developer"
       property="og:title"
-      content="Harsh Dhiman — Software Engineer | Full-Stack &amp; Backend Developer"
     />
     <meta
+      content="Official portfolio of Harsh Dhiman. Software Engineer building enterprise full-stack web platforms and scalable REST APIs with Laravel, Node.js, and TypeScript."
       property="og:description"
-      content="Official portfolio of Harsh Dhiman. Software Engineer building enterprise full-stack web platforms and scalable REST APIs with Laravel, Node.js, and TypeScript."
     />
-    <meta property="og:image" content="https://harshd.is-a.dev/Harsh.webp" />
-
+    <meta content="https://harshd.is-a.dev/Harsh.webp" property="og:image" />
     <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://harshd.is-a.dev/" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="https://harshd.is-a.dev/" property="twitter:url" />
     <meta
-      name="twitter:title"
       content="Harsh Dhiman — Software Engineer | Full-Stack &amp; Backend Developer"
+      name="twitter:title"
     />
     <meta
-      name="twitter:description"
       content="Official portfolio of Harsh Dhiman. Software Engineer building enterprise full-stack web platforms and scalable REST APIs with Laravel, Node.js, and TypeScript."
+      name="twitter:description"
     />
-    <meta name="twitter:image" content="https://harshd.is-a.dev/Harsh.webp" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <meta content="https://harshd.is-a.dev/Harsh.webp" name="twitter:image" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <!-- Structured Data (JSON-LD) for Google Knowledge Graph & Rich Results -->
     <script type="application/ld+json">
       {
@@ -437,6 +434,12 @@
             position: relative !important;
             overflow: hidden !important;
             background-color: #121214 !important;
+            cursor: default !important;
+            text-decoration: none !important;
+          }
+
+          .work-card-arrow-wrap {
+            display: none !important;
           }
 
           .work-image {
@@ -1349,13 +1352,12 @@
                 data-tl-trigger=".hero"
                 data-tl-type="scroll"
                 fetchpriority="high"
+                height="520"
                 loading="lazy"
                 sizes="100vw"
                 src="Harsh.webp"
-                fetchpriority="high"
-                width="430"
-                height="520"
                 srcset="Harsh.webp 500w, Harsh.webp 1670w"
+                width="430"
               />
             </div>
           </div>
@@ -2494,11 +2496,10 @@
                 alt="Harsh Dhiman"
                 class="mobile-hero-image"
                 fetchpriority="high"
+                height="520"
                 loading="lazy"
                 src="Harsh.webp"
-                fetchpriority="high"
                 width="430"
-                height="520"
               />
             </div>
           </div>
@@ -3889,8 +3890,9 @@
                   <a
                     aria-label="View Membership &amp; Event Management project"
                     class="work-card w-inline-block"
-                    href="#contact"
-                    target="_blank"
+                    href="javascript:void(0)"
+                    role="region"
+                    tabindex="0"
                     ><img
                       alt="Membership &amp; Event Management Enterprise Dashboard UI Mockup"
                       class="work-image"
@@ -3998,9 +4000,10 @@
                   ><a
                     aria-label="View Drishti Management Portal project"
                     class="work-card w-inline-block"
-                    href="#contact"
+                    href="javascript:void(0)"
                     id="test-1"
-                    target="_blank"
+                    role="region"
+                    tabindex="0"
                     ><img
                       alt="Drishti Management Portal Enterprise Workflow UI Mockup"
                       class="work-image"
@@ -4109,8 +4112,9 @@
                   ><a
                     aria-label="View Enterprise Database Search project"
                     class="work-card w-inline-block"
-                    href="https://happyring.fiftyseven.co/"
-                    target="_blank"
+                    href="javascript:void(0)"
+                    role="region"
+                    tabindex="0"
                     ><img
                       alt="Enterprise Database Search &amp; Indexing Engine Interface Mockup"
                       class="work-image"
@@ -4218,8 +4222,9 @@
                   ><a
                     aria-label="Hospital Management System"
                     class="work-card w-inline-block"
-                    href="https://pssltd.co.uk/"
-                    target="_blank"
+                    href="javascript:void(0)"
+                    role="region"
+                    tabindex="0"
                     ><img
                       alt="Hospital Management System Clinical &amp; Patient Records UI Mockup"
                       class="work-image"
@@ -4328,8 +4333,9 @@
                   ><a
                     aria-label="Revenue Land Records System"
                     class="work-card w-inline-block"
-                    href="#contact"
-                    target="_blank"
+                    href="javascript:void(0)"
+                    role="region"
+                    tabindex="0"
                     ><img
                       alt="Finance Management System Ledger &amp; Analytics UI Mockup"
                       class="work-image"
@@ -4437,8 +4443,9 @@
                   ><a
                     aria-label="View AI News Aggregator &amp; Auto Publisher project"
                     class="work-card w-inline-block"
-                    href="https://omicronblockchain.com/"
-                    target="_blank"
+                    href="javascript:void(0)"
+                    role="region"
+                    tabindex="0"
                     ><img
                       alt="Revenue Land Records &amp; Geospatial Parcel Registry UI Mockup"
                       class="work-image"
@@ -4546,8 +4553,9 @@
                   ><a
                     aria-label="View Omega Broadcast Backend Engine project"
                     class="work-card w-inline-block"
-                    href="#contact"
-                    target="_blank"
+                    href="javascript:void(0)"
+                    role="region"
+                    tabindex="0"
                     ><img
                       alt="AI News Aggregator &amp; Content Automation Dashboard UI Mockup"
                       class="work-image"
@@ -5287,18 +5295,15 @@
                   </div>
                   <nav class="faq-list w-dropdown-list">
                     <div class="faq-answer-wrap">
-                      <div class="faq-answer-item">
-                        <p class="faq-answer">
-                          Webflow gives you the best of both worlds. A platform
-                          your team can manage after launch, with the
-                          flexibility to build things that feel fully custom. I
-                          extend it with custom code and integrations so the
-                          result looks and performs like a fully coded site
-                          without needing a developer for every small change.
-                          For most businesses, that balance of control and
-                          independence is exactly what makes it worth it.
-                        </p>
-                      </div>
+                      <p class="faq-answer">
+                        I specialize in full-stack web engineering and robust
+                        backend system development. On the backend, I build
+                        high-performance REST APIs with Laravel (PHP), Node.js,
+                        Express.js, and TypeScript, backed by MySQL, Redis
+                        caching, and AWS S3. On the frontend, I create modern,
+                        responsive interfaces using Tailwind CSS (v4), Blade
+                        templates, HTML5/CSS3, and modern JavaScript.
+                      </p>
                     </div>
                   </nav>
                 </div>
@@ -5335,18 +5340,15 @@
                   </div>
                   <nav class="faq-list w-dropdown-list">
                     <div class="faq-answer-wrap">
-                      <div class="faq-answer-item">
-                        <p class="faq-answer">
-                          That's a big part of what I do. Whether your site
-                          needs a structural cleanup, better performance, new
-                          sections, or a CMS overhaul, I can step in and improve
-                          what's already there. I'll audit what you have,
-                          identify what's holding it back, and build a clear
-                          plan to get it where it should be. You don't need to
-                          start from scratch to get a site that feels fast,
-                          clean, and easy to manage.
-                        </p>
-                      </div>
+                      <p class="faq-answer">
+                        Yes, absolutely. At Omega Broadcast, I have built and
+                        maintained both monolithic full-stack web platforms
+                        using Laravel with Blade &amp; Tailwind CSS, as well as
+                        high-concurrency decoupled RESTful backend microservices
+                        using Node.js, Express, and TypeScript with strict JWT
+                        authentication and granular Role-Based Access Control
+                        (RBAC).
+                      </p>
                     </div>
                   </nav>
                 </div>
@@ -5383,17 +5385,16 @@
                   </div>
                   <nav class="faq-list w-dropdown-list">
                     <div class="faq-answer-wrap">
-                      <div class="faq-answer-item">
-                        <p class="faq-answer">
-                          It starts with a conversation about your goals,
-                          timeline, and what success looks like. From there I
-                          put together a clear scope and plan. Once we align, I
-                          build in stages and share progress as I go so nothing
-                          drifts and feedback stays easy. The goal is always a
-                          smooth handoff with a site you actually know how to
-                          use.
-                        </p>
-                      </div>
+                      <p class="faq-answer">
+                        Security is a core priority in every system I architect.
+                        I implement industry-standard authentication patterns
+                        including stateless JWT tokens, session-based auth with
+                        CSRF protection, secure password hashing (bcrypt),
+                        granular Role-Based Access Control (RBAC), strict
+                        request validation against SQL injection &amp; XSS, and
+                        custom encryption (such as AES-128-CBC route
+                        encryption).
+                      </p>
                     </div>
                   </nav>
                 </div>
@@ -5430,17 +5431,15 @@
                   </div>
                   <nav class="faq-list w-dropdown-list">
                     <div class="faq-answer-wrap">
-                      <div class="faq-answer-item">
-                        <p class="faq-answer">
-                          Yes. I've worked on projects that required strict
-                          confidentiality, from pre-launch products to internal
-                          tools, and I treat every client's work with the same
-                          level of discretion. I'm happy to sign an NDA before
-                          we even start talking details. Trust is a big part of
-                          why clients keep coming back, and that extends to how
-                          I handle sensitive information.
-                        </p>
-                      </div>
+                      <p class="faq-answer">
+                        I optimize performance across the entire pipeline:
+                        writing optimized SQL queries, utilizing indexing and
+                        query profiling to eliminate N+1 bottlenecks,
+                        implementing in-memory caching with Redis, optimizing
+                        JSON payload sizes, utilizing database transactions for
+                        data integrity, and setting up asynchronous background
+                        queues for heavy tasks.
+                      </p>
                     </div>
                   </nav>
                 </div>
@@ -5479,18 +5478,14 @@
                   </div>
                   <nav class="faq-list w-dropdown-list">
                     <div class="faq-answer-wrap">
-                      <div class="faq-answer-item">
-                        <p class="faq-answer">
-                          Development is my core strength, but I'm not the kind
-                          of developer who needs every pixel handed to them. I
-                          have a strong eye for design and regularly collaborate
-                          with designers to refine layouts, spacing, and visual
-                          quality. If you have a design team, I'll work closely
-                          with them. If you're coming in with a rough direction,
-                          I can help shape things and bring in a designer from
-                          my network when needed.
-                        </p>
-                      </div>
+                      <p class="faq-answer">
+                        I have practical hands-on experience working with AWS S3
+                        for secure cloud asset storage, Linux/Ubuntu server
+                        environments, Nginx web servers, environment variable
+                        configuration, Git &amp; GitHub version control
+                        workflows, Postman API testing suites, and dev server
+                        deployment pipelines.
+                      </p>
                     </div>
                   </nav>
                 </div>
@@ -5526,20 +5521,15 @@
                   </div>
                   <nav class="faq-list w-dropdown-list">
                     <div class="faq-answer-wrap">
-                      <div class="faq-answer-item">
-                        <p class="faq-answer">
-                          You get a dedicated block of development hours each
-                          month that you can use however you need. New sections,
-                          layout improvements, performance fixes, campaign
-                          updates, CMS changes. I work as an extension of your
-                          team, not someone you have to re-brief every time.
-                          Hours roll over for up to three months so nothing goes
-                          to waste, and we keep a running priority list so the
-                          most impactful work always gets done first. It's built
-                          for brands that want their site to keep evolving, not
-                          just sit there after launch.
-                        </p>
-                      </div>
+                      <p class="faq-answer">
+                        My workflow emphasizes clean architecture and
+                        maintainability: requirement breakdown &amp; schema
+                        modeling -&gt; modular backend development using Service
+                        &amp; Repository patterns -&gt; thorough Postman API
+                        testing -&gt; responsive frontend integration with
+                        Tailwind -&gt; Git version control and smooth server
+                        deployment.
+                      </p>
                     </div>
                   </nav>
                 </div>
@@ -5576,18 +5566,14 @@
                   </div>
                   <nav class="faq-list w-dropdown-list">
                     <div class="faq-answer-wrap">
-                      <div class="faq-answer-item">
-                        <p class="faq-answer">
-                          Revisions are built into the process, not an
-                          afterthought. I share progress at key stages so you
-                          can give feedback while it's easy to adjust, not after
-                          everything is locked in. I keep a tight feedback loop
-                          through Slack or whatever your team already uses. If
-                          something doesn't feel right, just say so. I'd rather
-                          refine something twice than launch something you're
-                          not proud of.
-                        </p>
-                      </div>
+                      <p class="faq-answer">
+                        Yes! I am actively open to discussing high-impact
+                        full-time Software Engineer opportunities, backend
+                        architecture contracts, and specialized full-stack web
+                        development projects. Whether you are launching a new
+                        product or scaling an existing system, feel free to
+                        reach out.
+                      </p>
                     </div>
                   </nav>
                 </div>
@@ -5623,17 +5609,22 @@
                   </div>
                   <nav class="faq-list w-dropdown-list">
                     <div class="faq-answer-wrap">
-                      <div class="faq-answer-item">
-                        <p class="faq-answer">
-                          No stress. Just reach out at
-                          <a
-                            href="mailto:harshdhimanbarara15@gmail.com?subject=Not%20Sure%20Which%20Plan%20to%20Choose"
-                            >harshdhimanbarara15@gmail.com</a
-                          >
-                          and tell me what you have in mind. I'll help you
-                          figure out the right option.
-                        </p>
-                      </div>
+                      <p class="faq-answer">
+                        You can reach out directly via email at
+                        <a href="mailto:harshdhimanbarara15@gmail.com"
+                          >harshdhimanbarara15@gmail.com</a
+                        >, connect on
+                        <a
+                          href="https://www.linkedin.com/in/harsh-dhiman-1a3b5a26a/"
+                          target="_blank"
+                          >LinkedIn</a
+                        >, or explore my code on
+                        <a
+                          href="https://github.com/harsh-writes-code"
+                          target="_blank"
+                          >GitHub</a
+                        >. I typically respond within 24 hours.
+                      </p>
                     </div>
                   </nav>
                 </div>
