@@ -174,7 +174,7 @@
           "@type": "EducationalOrganization",
           "name": "Sanatan Dharma College, Kurukshetra University"
         },
-        "email": "mailto:harshdhimanbarara15@gmail.com",
+        "email": "mailto:imdhimanharsh@gmail.com",
         "telephone": "+91-9817583639",
         "url": "https://harsh-writes-code.github.io",
         "sameAs": [
@@ -433,9 +433,12 @@
           .work-card {
             position: relative !important;
             overflow: hidden !important;
-            background-color: #121214 !important;
+            background-color: #0c0d10 !important;
             cursor: default !important;
             text-decoration: none !important;
+            border-radius: 22px !important;
+            border: 1px solid rgba(255, 255, 255, 0.08) !important;
+            min-height: 540px !important;
           }
 
           .work-card-arrow-wrap {
@@ -447,13 +450,15 @@
             visibility: visible !important;
             display: block !important;
             position: absolute !important;
-            inset: 0 !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
             width: 100% !important;
             height: 100% !important;
             object-fit: cover !important;
-            object-position: center top !important;
+            object-position: center 15% !important;
             z-index: 1 !important;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
           }
 
           .work-card:hover .work-image {
@@ -463,13 +468,21 @@
           .work-card-content {
             position: relative !important;
             z-index: 5 !important;
+            height: 100% !important;
+            min-height: 540px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            padding-top: 1.5rem !important;
             background: linear-gradient(
               to top,
-              rgba(10, 10, 12, 0.95) 0%,
-              rgba(10, 10, 12, 0.72) 40%,
-              rgba(10, 10, 12, 0.25) 75%,
-              rgba(10, 10, 12, 0.45) 100%
+              rgba(10, 10, 14, 0.98) 0%,
+              rgba(10, 10, 14, 0.92) 28%,
+              rgba(10, 10, 14, 0.40) 50%,
+              rgba(10, 10, 14, 0.0) 70%,
+              rgba(10, 10, 14, 0.20) 100%
             ) !important;
+            backdrop-filter: blur(0px) !important;
           }
 
           /* ============================================
@@ -693,16 +706,63 @@
             color: black !Important;
           }
 
-          .faq-list.w--open .faq-answer-wrap {
-           grid-template-rows: 1fr;
+          /* FAQ Accordion Styling - Closed by default, opens on click */
+          .faq-column {
+            display: flex !important;
+            gap: 1.5rem !important;
           }
 
-          .faq-toggle.w--open .faq-icon-v-line {
-           transform: rotate(90deg);
+          .faq-colum-item {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1rem !important;
+            flex: 1 !important;
+          }
+
+          .faq {
+            cursor: pointer;
+            margin-bottom: 0.5rem !important;
+          }
+
+          .faq-toggle {
+            cursor: pointer !important;
+          }
+
+          .faq-list {
+            display: none !important;
+            max-height: 0 !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            transition: max-height 0.4s ease, opacity 0.3s ease !important;
+          }
+
+          .faq-answer-wrap {
+            overflow: hidden !important;
+            padding-top: 0.85rem !important;
+            padding-bottom: 0.5rem !important;
+          }
+
+          .faq.is-open .faq-list,
+          .faq.w--open .faq-list,
+          .faq-list.w--open {
+            display: block !important;
+            max-height: 1000px !important;
+            opacity: 1 !important;
+          }
+
+          .faq-icon-v-line {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            transform-origin: center center !important;
+          }
+
+          .faq.is-open .faq-icon-v-line,
+          .faq-toggle.w--open .faq-icon-v-line,
+          .faq.w--open .faq-icon-v-line {
+            transform: rotate(90deg) !important;
           }
 
           .faq-toggle:hover .faq-icon {
-           background-color: #EDECDA;
+            background-color: #EDECDA !important;
           }
 
           [data-origin] {
@@ -946,9 +1006,10 @@
             }
 
             .work-card {
-              flex: 0 0 84vw !important;
-              max-width: 84vw !important;
-              width: 84vw !important;
+              flex: 0 0 88vw !important;
+              max-width: 88vw !important;
+              width: 88vw !important;
+              min-height: 520px !important;
               scroll-snap-align: center !important;
             }
 
@@ -1525,9 +1586,10 @@
               <div class="mobile-menu-wrap">
                 <a
                   class="nav-button-mobile w-button"
-                  href="mailto:harshdhimanbarara15@gmail.com"
+                  href="https://wa.me/919817583639?text=Hi%20Harsh%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                  rel="noopener noreferrer"
                   target="_blank"
-                  >Book a Call</a
+                  >Let's Talk</a
                 >
                 <div class="mobile-menu">
                   <div class="mobile-menu-icons">
@@ -1622,7 +1684,7 @@
                   data-tl-type="scroll"
                   id="projects_start_text"
                 >
-                  6+<br />Projects
+                  8+<br />Projects
                 </p>
               </div>
             </div>
@@ -2108,7 +2170,7 @@
             data-tl-type="scroll"
           >
             <div class="nav-email-item">
-              <p class="email-text">harshdhimanbarara15@gmail.com</p>
+              <p class="email-text">imdhimanharsh@gmail.com</p>
               <div class="clipboard-item">
                 <svg
                   class="clipboard-icon"
@@ -2162,9 +2224,10 @@
             <a
               class="nav-button w-inline-block"
               data-button-hover=""
-              href="mailto:harshdhimanbarara15@gmail.com"
+              href="https://wa.me/919817583639?text=Hi%20Harsh%2C%20I%20would%20like%20to%20discuss%20a%20project."
+              rel="noopener noreferrer"
               target="_blank"
-              ><p class="button-text">Book a Call</p></a
+              ><p class="button-text">Let's Talk</p></a
             ><a
               class="nav-button-secondary w-inline-block"
               data-button-hover=""
@@ -2317,7 +2380,7 @@
                 <h1 class="hero-heading">SOFTWARE<br />DEVELOPER</h1>
                 <div class="hero-buttons-wrap">
                   <div class="hero-cta-button">
-                    <p class="button-text">Book a Call</p>
+                    <p class="button-text">Let's Talk</p>
                   </div>
                   <div class="hero-button">
                     <p class="button-text">About Me</p>
@@ -2367,7 +2430,7 @@
                           data-flip-id="hero-card-2-text"
                           id="projects_start_text"
                         >
-                          6+<br />Projects
+                          8+<br />Projects
                         </p>
                       </div>
                     </div>
@@ -4660,6 +4723,228 @@
                       </div>
                     </div>
                     <div class="work-image-overlay"></div></a
+                  ><a
+                    aria-label="View NewsPulse Digital Media &amp; Editorial Platform project"
+                    class="work-card w-inline-block"
+                    href="javascript:void(0)"
+                    role="region"
+                    tabindex="0"
+                    ><img
+                      alt="NewsPulse Real-Time Digital Newsroom &amp; Editorial Platform UI Screenshot"
+                      class="work-image"
+                      loading="lazy"
+                      src="news.png" />
+                    <div class="w-embed"></div>
+                    <div class="work-card-content">
+                      <div class="work-card-content-top-layout">
+                        <div class="work-label">08</div>
+                        <div class="work-label-wrap">
+                          <div class="work-label">Laravel 12</div>
+                          <div class="work-label">Livewire 3</div>
+                          <div class="work-label">Tailwind CSS</div>
+                        </div>
+                      </div>
+                      <div class="w-embed"></div>
+                      <div class="work-card-content-bottom-layout">
+                        <h3 class="work-card-heading">
+                          NewsPulse — Media Platform
+                        </h3>
+                        <div class="work-disclaimer-pill">
+                          <span class="disclaimer-dot">•</span> Full-Stack
+                          Newsroom &amp; Enterprise CMS Platform
+                        </div>
+                        <p class="op80">
+                          Real-time digital journalism &amp; newsroom CMS with
+                          Livewire 3 reactive search, state/city edition
+                          switchers, live financial tickers, RBAC editorial
+                          desk, automated NewsArticle JSON-LD SEO, and honeypot
+                          bot defenses.
+                        </p>
+                        <div class="work-card-arrow-wrap">
+                          <div class="work-card-arrow-icon">
+                            <svg
+                              class="work-card-arrow"
+                              fill="none"
+                              viewbox="0 0 23 23"
+                              width="100%"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="15"
+                                rx="1"
+                                transform="rotate(45 15.4004 5.5)"
+                                width="2"
+                                x="15.4004"
+                                y="5.5"
+                              ></rect>
+                              <rect
+                                fill="currentColor"
+                                height="11"
+                                rx="1"
+                                width="2"
+                                x="14.8145"
+                                y="5.5"
+                              ></rect>
+                              <rect
+                                fill="currentColor"
+                                height="11"
+                                rx="1"
+                                transform="rotate(90 16.8145 5.5)"
+                                width="2"
+                                x="16.8145"
+                                y="5.5"
+                              ></rect></svg
+                            ><svg
+                              class="work-card-arrow-2"
+                              fill="none"
+                              viewbox="0 0 23 23"
+                              width="100%"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="15"
+                                rx="1"
+                                transform="rotate(45 15.4004 5.5)"
+                                width="2"
+                                x="15.4004"
+                                y="5.5"
+                              ></rect>
+                              <rect
+                                fill="currentColor"
+                                height="11"
+                                rx="1"
+                                width="2"
+                                x="14.8145"
+                                y="5.5"
+                              ></rect>
+                              <rect
+                                fill="currentColor"
+                                height="11"
+                                rx="1"
+                                transform="rotate(90 16.8145 5.5)"
+                                width="2"
+                                x="16.8145"
+                                y="5.5"
+                              ></rect>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="work-image-overlay"></div></a
+                  ><a
+                    aria-label="View NewsPulse Editorial Desk CMS Workflow project"
+                    class="work-card w-inline-block"
+                    href="javascript:void(0)"
+                    role="region"
+                    tabindex="0"
+                    ><img
+                      alt="NewsPulse Editorial Desk CMS &amp; Content Management UI Screenshot"
+                      class="work-image"
+                      loading="lazy"
+                      src="news1.png" />
+                    <div class="w-embed"></div>
+                    <div class="work-card-content">
+                      <div class="work-card-content-top-layout">
+                        <div class="work-label">09</div>
+                        <div class="work-label-wrap">
+                          <div class="work-label">Editorial CMS</div>
+                          <div class="work-label">Alpine.js</div>
+                          <div class="work-label">PHPUnit Tests</div>
+                        </div>
+                      </div>
+                      <div class="w-embed"></div>
+                      <div class="work-card-content-bottom-layout">
+                        <h3 class="work-card-heading">
+                          NewsPulse — Editorial Desk
+                        </h3>
+                        <div class="work-disclaimer-pill">
+                          <span class="disclaimer-dot">•</span> Multi-Role
+                          Publishing Suite &amp; Security Shield
+                        </div>
+                        <p class="op80">
+                          Granular RBAC editorial newsroom featuring Quill
+                          rich-text composer with word-count &amp; read-time
+                          estimation, 4-zone ad management engine, RateLimiter
+                          brute-force defense, and 26+ PHPUnit feature tests (67+
+                          assertions).
+                        </p>
+                        <div class="work-card-arrow-wrap">
+                          <div class="work-card-arrow-icon">
+                            <svg
+                              class="work-card-arrow"
+                              fill="none"
+                              viewbox="0 0 23 23"
+                              width="100%"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="15"
+                                rx="1"
+                                transform="rotate(45 15.4004 5.5)"
+                                width="2"
+                                x="15.4004"
+                                y="5.5"
+                              ></rect>
+                              <rect
+                                fill="currentColor"
+                                height="11"
+                                rx="1"
+                                width="2"
+                                x="14.8145"
+                                y="5.5"
+                              ></rect>
+                              <rect
+                                fill="currentColor"
+                                height="11"
+                                rx="1"
+                                transform="rotate(90 16.8145 5.5)"
+                                width="2"
+                                x="16.8145"
+                                y="5.5"
+                              ></rect></svg
+                            ><svg
+                              class="work-card-arrow-2"
+                              fill="none"
+                              viewbox="0 0 23 23"
+                              width="100%"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <rect
+                                fill="currentColor"
+                                height="15"
+                                rx="1"
+                                transform="rotate(45 15.4004 5.5)"
+                                width="2"
+                                x="15.4004"
+                                y="5.5"
+                              ></rect>
+                              <rect
+                                fill="currentColor"
+                                height="11"
+                                rx="1"
+                                width="2"
+                                x="14.8145"
+                                y="5.5"
+                              ></rect>
+                              <rect
+                                fill="currentColor"
+                                height="11"
+                                rx="1"
+                                transform="rotate(90 16.8145 5.5)"
+                                width="2"
+                                x="16.8145"
+                                y="5.5"
+                              ></rect>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="work-image-overlay"></div></a
                   ><!-- Omega Broadcast Enterprise APIs Card
 <a aria-label="View Omega Broadcast Backend Engine project" href="#contact" target="_blank" class="work-card w-inline-block"><img src="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/693a07b48a5e0c4375823c97_Frame%20116046251.avif" loading="lazy" alt="Smiling woman sitting on wooden chair and looking at her smartphone in dimly lit outdoor setting with lantern in background." class="work-image"/><div class="w-embed">
 
@@ -5184,7 +5469,8 @@
                         <a
                           class="cta-button w-inline-block"
                           data-button-hover=""
-                          href="mailto:harshdhimanbarara15@gmail.com"
+                          href="https://wa.me/919817583639?text=Hi%20Harsh%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                          rel="noopener noreferrer"
                           target="_blank"
                           ><p class="button-text">Let's Talk</p></a
                         >
@@ -5611,8 +5897,8 @@
                     <div class="faq-answer-wrap">
                       <p class="faq-answer">
                         You can reach out directly via email at
-                        <a href="mailto:harshdhimanbarara15@gmail.com"
-                          >harshdhimanbarara15@gmail.com</a
+                        <a href="mailto:imdhimanharsh@gmail.com"
+                          >imdhimanharsh@gmail.com</a
                         >, connect on
                         <a
                           href="https://www.linkedin.com/in/harsh-dhiman-1a3b5a26a/"
@@ -6009,6 +6295,53 @@
           initMobileAnimations();
         }
         window.addEventListener("resize", initMobileAnimations);
+      })();
+
+      // Global FAQ Accordion Engine (Desktop & Mobile)
+      (function () {
+        function initFAQ() {
+          document.querySelectorAll(".faq").forEach(function (faq) {
+            var toggle = faq.querySelector(".faq-toggle");
+            if (!toggle || toggle.dataset.faqBound) return;
+            toggle.dataset.faqBound = "true";
+
+            toggle.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              var isOpen = faq.classList.contains("is-open") || faq.classList.contains("w--open");
+
+              // Close all other FAQs
+              document.querySelectorAll(".faq").forEach(function (other) {
+                if (other !== faq) {
+                  other.classList.remove("is-open", "w--open");
+                  var ot = other.querySelector(".faq-toggle");
+                  if (ot) ot.classList.remove("w--open");
+                  var ol = other.querySelector(".faq-list");
+                  if (ol) ol.classList.remove("w--open");
+                }
+              });
+
+              // Toggle current FAQ
+              if (isOpen) {
+                faq.classList.remove("is-open", "w--open");
+                toggle.classList.remove("w--open");
+                var list = faq.querySelector(".faq-list");
+                if (list) list.classList.remove("w--open");
+              } else {
+                faq.classList.add("is-open", "w--open");
+                toggle.classList.add("w--open");
+                var list = faq.querySelector(".faq-list");
+                if (list) list.classList.add("w--open");
+              }
+            });
+          });
+        }
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initFAQ);
+        } else {
+          initFAQ();
+        }
       })();
     </script>
   </body>
