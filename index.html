@@ -72,15 +72,28 @@
             "@type": "Person",
             "@id": "https://harshd.is-a.dev/#person",
             "name": "Harsh Dhiman",
+            "alternateName": [
+              "harsh-writes-code",
+              "Harsh Dhiman Software Engineer",
+              "Harsh Dhiman Developer",
+              "Harsh Dhiman Barara"
+            ],
             "url": "https://harshd.is-a.dev/",
             "image": "https://harshd.is-a.dev/Harsh.webp",
-            "jobTitle": "Software Engineer",
+            "jobTitle": "Software Engineer (Full-Stack & Backend Developer)",
             "worksFor": {
               "@type": "Organization",
-              "name": "Omega Broadcast"
+              "name": "Omega Broadcast Pvt. Ltd."
             },
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "Sanatan Dharma College, Kurukshetra University"
+            },
+            "email": "mailto:imdhimanharsh@gmail.com",
+            "telephone": "+91-9817583639",
             "sameAs": [
               "https://www.linkedin.com/in/harsh-dhiman-1a3b5a26a/",
+              "https://www.linkedin.com/in/harsh-dhiman-barara",
               "https://github.com/harsh-writes-code"
             ],
             "knowsAbout": [
@@ -88,15 +101,25 @@
               "Full-Stack Web Development",
               "Backend REST APIs",
               "Laravel",
+              "PHP",
               "Node.js",
-              "TypeScript",
               "Express.js",
+              "TypeScript",
               "MySQL",
               "Redis",
               "Tailwind CSS",
               "AWS"
             ],
-            "description": "Software Engineer with 1+ years of experience delivering full-stack web applications and robust backend REST APIs."
+            "description": "Harsh Dhiman is a Software Engineer specializing in scalable full-stack web applications (Laravel, Tailwind) and high-performance backend REST APIs (Node.js, Express, TypeScript, MySQL, Redis, AWS)."
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://harshd.is-a.dev/#profilepage",
+            "url": "https://harshd.is-a.dev/",
+            "name": "Harsh Dhiman — Software Engineer | Full-Stack & Backend Developer",
+            "mainEntity": {
+              "@id": "https://harshd.is-a.dev/#person"
+            }
           },
           {
             "@type": "WebSite",
@@ -139,6 +162,17 @@
         .about-card-wrap.ac-7 {
           top: 75% !important;
         }
+      /* Screen reader only utility for SEO headings */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
       }
     </style>
     <script type="text/javascript">
@@ -151,54 +185,10 @@
             (n.className += t + "touch"));
       })(window, document);
     </script>
-    <link
-      href="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/69839f2955d4ddfd746742eb_favicon.png"
-      rel="shortcut icon"
-      type="image/x-icon"
-    />
-    <link
-      href="https://cdn.prod.website-files.com/691d7c9f14d0280ebe2d4108/69839ce86f570a04cf39e5db_webclip.png"
-      rel="apple-touch-icon"
-    />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Harsh Dhiman",
-        "jobTitle": "Software Engineer (Full-Stack & Backend Developer)",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Omega Broadcast Pvt. Ltd."
-        },
-        "alumniOf": {
-          "@type": "EducationalOrganization",
-          "name": "Sanatan Dharma College, Kurukshetra University"
-        },
-        "email": "mailto:imdhimanharsh@gmail.com",
-        "telephone": "+91-9817583639",
-        "url": "https://harsh-writes-code.github.io",
-        "sameAs": [
-          "https://www.linkedin.com/in/harsh-dhiman-barara",
-          "https://github.com/harsh-writes-code"
-        ],
-        "knowsAbout": [
-          "Laravel Full-Stack",
-          "PHP",
-          "CodeIgniter",
-          "WordPress",
-          "Blade & Tailwind CSS",
-          "Vite",
-          "Node.js REST APIs",
-          "Express.js",
-          "TypeScript",
-          "MySQL & ORM",
-          "Redis Caching",
-          "AWS S3 & Dev Server Deployment",
-          "JWT & AES Encryption",
-          "RBAC"
-        ]
-      }
-    </script>
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="/favicon.ico" rel="alternate icon" />
+    <link href="/favicon.png" rel="shortcut icon" type="image/png" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
       rel="stylesheet"
@@ -2372,7 +2362,7 @@
                 The Software Engineer. That’s Harsh.
               </p>
               <div class="hero-content-layout">
-                <h1 class="hero-heading">SOFTWARE<br />DEVELOPER</h1>
+                <h1 class="hero-heading"><span class="sr-only">Harsh Dhiman — </span>SOFTWARE<br />DEVELOPER</h1>
                 <div class="hero-buttons-wrap">
                   <div class="hero-cta-button">
                     <p class="button-text">Let's Talk</p>
